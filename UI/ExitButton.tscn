@@ -3,10 +3,6 @@
 [ext_resource path="res://UI/MainMenuButton.tscn" type="PackedScene" id=1]
 
 [node name="ExitButton" instance=ExtResource( 1 )]
-rect_min_size = Vector2( 320, 50 )
 
 [node name="Label" parent="." index="0"]
-rect_min_size = Vector2( 320, 0 )
 text = "Exit"
-align = 1
-valign = 1

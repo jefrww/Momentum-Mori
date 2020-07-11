@@ -22,10 +22,10 @@ func _process(delta):
 	updateAnim()
 
 func updateAnim():
-	var choppedVel = Vector2(velocity.x, -velocity.z)
-	choppedVel = choppedVel.normalized()
-	print(choppedVel)
-	get_child(2).get_child(2).set("parameters/WASDmovement/blend_position", choppedVel)
+	var choppedVel = Vector2(velocity.x, velocity.z)
+	var choppedForward = Vector2(transform.basis.z.x, transform.basis.z.z)
+	var angle = choppedForward.angle_to(choppedVel)
+	get_child(2).get_child(2).set("parameters/WASDmovement/blend_position", Vector2(1,0).rotated(angle).rotated(-PI/2))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
