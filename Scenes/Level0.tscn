@@ -1,0 +1,90 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Prefabs/AccelerationPickUp.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
+
+[sub_resource type="BoxShape" id=1]
+
+[sub_resource type="CubeMesh" id=2]
+
+[sub_resource type="BoxShape" id=3]
+
+[sub_resource type="CubeMesh" id=4]
+
+[node name="Level0" type="Spatial"]
+
+[node name="Ground" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground"]
+transform = Transform( 50.2886, 0, 0, 0, 1, 0, 0, 0, 52.1923, 0, 0, 0 )
+shape = SubResource( 1 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Ground"]
+transform = Transform( 49.5376, 0, 0, 0, 1, 0, 0, 0, 49.3904, 0, 0, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Slope" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.963993, 0.265926, 0, -0.265926, 0.963993, 0, -1, 65.082 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Slope"]
+transform = Transform( 50.2886, 0, 0, 0, 1, 0, 0, 0, 52.1923, 0, 0, 0 )
+shape = SubResource( 1 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Slope"]
+transform = Transform( 49.5376, 0, 0, 0, 1, 0, 0, 0, 49.3904, 0, 0, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.235, 0 )
+
+[node name="box" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.848196, 0.529682, 0, -0.529682, 0.848196, 0, 8.27234, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="box"]
+shape = SubResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="box"]
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="box2" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.848196, 0.529682, 0, -0.529682, 0.848196, 9.34538, 8.27234, 14.3154 )
+
+[node name="CollisionShape" type="CollisionShape" parent="box2"]
+shape = SubResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="box2"]
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="box3" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.848196, 0.529682, 0, -0.529682, 0.848196, -2.30497, 8.27234, -9.71711 )
+
+[node name="CollisionShape" type="CollisionShape" parent="box3"]
+shape = SubResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="box3"]
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="box4" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.848196, 0.529682, 0, -0.529682, 0.848196, -11.2434, 8.27234, 14.3154 )
+
+[node name="CollisionShape" type="CollisionShape" parent="box4"]
+shape = SubResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="box4"]
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="AccelerationPickUp" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37276, -6.23152 )
