@@ -5,7 +5,7 @@
 [ext_resource path="res://UI/OverlayMenu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Prefabs/RotationPickup.tscn" type="PackedScene" id=4]
 [ext_resource path="res://UI/CollectedInfo.gd" type="Script" id=5]
-[ext_resource path="res://Textures/skyboxupscaled.png" type="Texture" id=6]
+[ext_resource path="res://Textures/Skybox 2560x1280.png" type="Texture" id=6]
 
 [sub_resource type="Shader" id=6]
 code = "shader_type canvas_item;
