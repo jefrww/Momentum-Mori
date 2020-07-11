@@ -44,7 +44,7 @@ blend_point_4/node = SubResource( 10 )
 blend_point_4/pos = Vector2( 0, 0 )
 
 [sub_resource type="AnimationNodeBlendTree" id=12]
-graph_offset = Vector2( 39, 44 )
+graph_offset = Vector2( -15, 49 )
 nodes/Animation/node = SubResource( 3 )
 nodes/Animation/position = Vector2( 340, 340 )
 "nodes/Animation 2/node" = SubResource( 2 )
@@ -56,7 +56,7 @@ nodes/Jump/position = Vector2( 560, 180 )
 nodes/WASDmovement/node = SubResource( 11 )
 nodes/WASDmovement/position = Vector2( 260, 160 )
 nodes/output/position = Vector2( 1040, 160 )
-node_connections = [ "output", 0, "Dance", "Dance", 0, "Jump", "Dance", 1, "Animation 2", "Jump", 0, "WASDmovement", "Jump", 1, "Animation" ]
+node_connections = [ "output", 0, "Dance", "Jump", 0, "WASDmovement", "Jump", 1, "Animation", "Dance", 0, "Jump", "Dance", 1, "Animation 2" ]
 
 [node name="PlayerAnim" instance=ExtResource( 1 )]
 
@@ -72,4 +72,4 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/Dance/active = false
 parameters/Jump/active = false
-parameters/WASDmovement/blend_position = Vector2( 0, 1 )
+parameters/WASDmovement/blend_position = Vector2( -0.0925804, 0.0204725 )

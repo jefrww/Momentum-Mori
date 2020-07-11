@@ -18,6 +18,14 @@ export var winCondition = 100
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
+func _process(delta):
+	updateAnim()
+
+func updateAnim():
+	var choppedVel = Vector2(velocity.x, -velocity.z)
+	choppedVel = choppedVel.normalized()
+	print(choppedVel)
+	get_child(2).get_child(2).set("parameters/WASDmovement/blend_position", choppedVel)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -30,7 +38,6 @@ func _physics_process(delta):
 	
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
-		print("moving Mouse")
 		rotate_y(-lerp(0, rotSpeed, event.relative.x/10))
 
 func player_movement():
