@@ -1,6 +1,6 @@
 extends KinematicBody
 
-export var maxSpeed = 10
+export var maxSpeed = 100
 export var acceleration = 1
 export var decay = 0.01
 export var jumpPower = 10
@@ -9,6 +9,8 @@ onready var gravityVector = Vector3.DOWN * gravity
 export var rotSpeed = 0.1
 
 var velocity = Vector3()
+onready var collected = 0
+export var winCondition = 100
 
 
 
@@ -21,10 +23,13 @@ func _ready():
 #func _process(delta):
 #	pass
 func _physics_process(delta):
+	print(velocity.length())
 	velocity += gravityVector * delta
 	player_movement()
 	velocity = move_and_slide(velocity, Vector3.UP)
-
+func _unhandled_input(event):
+	if event is InputEventMouseMotion:
+		rotate_y(-lerp(0, rotSpeed, event.relative.x/10))
 
 func player_movement():
 	var moved = false
@@ -55,9 +60,5 @@ func player_movement():
 	if !moved:
 		newVelocity = newVelocity * (1-decay)
 	velocity = newVelocity
-	
 
 
-func _unhandled_input(event):
-	if event is InputEventMouseMotion:
-		rotate_y(-lerp(0, rotSpeed, event.relative.x/10))

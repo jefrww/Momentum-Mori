@@ -3,8 +3,9 @@ extends Control
 
 func _on_StartButton_pressed():
 	print("STARTING")
-	get_tree().change_scene("res://Scenes/Level0.tscn")
-
+	var error = get_tree().change_scene("res://Scenes/Level0.tscn")
+	if error:
+		print(error)
 
 func _on_ExitButton_pressed():
 	print("BYE")

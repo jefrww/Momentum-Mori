@@ -2,14 +2,18 @@
 
 [ext_resource path="res://Prefabs/AccelerationPickUp.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scripts/OverlayMenu.gd" type="Script" id=3]
-[ext_resource path="res://UI/ExitButton.tscn" type="PackedScene" id=4]
-[ext_resource path="res://UI/ContinueButton.tscn" type="PackedScene" id=5]
-[ext_resource path="res://UI/BackToMainButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://UI/OverlayMenu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Prefabs/RotationPickup.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/HeadUp.gd" type="Script" id=5]
 
 [sub_resource type="BoxShape" id=1]
 
 [sub_resource type="CubeMesh" id=2]
+
+[sub_resource type="Environment" id=5]
+background_mode = 1
+background_color = Color( 0.776471, 0.65098, 0.65098, 1 )
+ambient_light_color = Color( 0.301961, 0.27451, 0.27451, 1 )
 
 [sub_resource type="BoxShape" id=3]
 
@@ -28,7 +32,7 @@ __meta__ = {
 }
 
 [node name="MeshInstance" type="MeshInstance" parent="Ground"]
-transform = Transform( 49.5376, 0, 0, 0, 1, 0, 0, 0, 49.3904, 0, 0, 0 )
+transform = Transform( 49.5376, 0, 0, 0, 1, 0, 0, 0, 49.3904, -0.0475655, -0.639224, 1.84165 )
 mesh = SubResource( 2 )
 material/0 = null
 
@@ -50,85 +54,121 @@ material/0 = null
 [node name="Player" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.235, 0 )
 
-[node name="box" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.848196, 0.529682, 0, -0.529682, 0.848196, 0, 8.27234, 0 )
+[node name="OverlayMenu" parent="." instance=ExtResource( 3 )]
 
-[node name="CollisionShape" type="CollisionShape" parent="box"]
-shape = SubResource( 3 )
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 5 )
 
-[node name="MeshInstance" type="MeshInstance" parent="box"]
-mesh = SubResource( 4 )
-material/0 = null
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.710566, 0.70363, 0, -0.70363, 0.710566, 0, 18.4573, 26.1618 )
+light_energy = 0.5
+light_indirect_energy = 3.69
 
-[node name="box2" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.848196, 0.529682, 0, -0.529682, 0.848196, 9.34538, 8.27234, 14.3154 )
+[node name="AccelPickup" type="Node" parent="."]
 
-[node name="CollisionShape" type="CollisionShape" parent="box2"]
-shape = SubResource( 3 )
-
-[node name="MeshInstance" type="MeshInstance" parent="box2"]
-mesh = SubResource( 4 )
-material/0 = null
-
-[node name="box3" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.848196, 0.529682, 0, -0.529682, 0.848196, -2.30497, 8.27234, -9.71711 )
-
-[node name="CollisionShape" type="CollisionShape" parent="box3"]
-shape = SubResource( 3 )
-
-[node name="MeshInstance" type="MeshInstance" parent="box3"]
-mesh = SubResource( 4 )
-material/0 = null
-
-[node name="box4" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.848196, 0.529682, 0, -0.529682, 0.848196, -11.2434, 8.27234, 14.3154 )
-
-[node name="CollisionShape" type="CollisionShape" parent="box4"]
-shape = SubResource( 3 )
-
-[node name="MeshInstance" type="MeshInstance" parent="box4"]
-mesh = SubResource( 4 )
-material/0 = null
-
-[node name="AccelerationPickUp" parent="." instance=ExtResource( 1 )]
+[node name="AccelerationPickUp" parent="AccelPickup" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37276, -6.23152 )
 
-[node name="OverlayMenu" type="Control" parent="."]
-pause_mode = 2
-visible = false
+[node name="AccelerationPickUp2" parent="AccelPickup" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37276, -9.40501 )
+
+[node name="AccelerationPickUp3" parent="AccelPickup" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37276, -13.0807 )
+
+[node name="AccelerationPickUp4" parent="AccelPickup" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37276, -17.6542 )
+
+[node name="AccelerationPickUp5" parent="AccelPickup" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37276, -21.4412 )
+
+[node name="AccelerationPickUp6" parent="AccelPickup" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37276, -25.9508 )
+
+[node name="Boxes" type="Node" parent="."]
+
+[node name="box" type="RigidBody" parent="Boxes"]
+transform = Transform( 1, 0, 0, 0, 0.848196, 0.529682, 0, -0.529682, 0.848196, 0, 8.27234, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Boxes/box"]
+shape = SubResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Boxes/box"]
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="box2" type="RigidBody" parent="Boxes"]
+transform = Transform( 1, 0, 0, 0, 0.848196, 0.529682, 0, -0.529682, 0.848196, 9.34538, 8.27234, 14.3154 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Boxes/box2"]
+shape = SubResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Boxes/box2"]
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="box3" type="RigidBody" parent="Boxes"]
+transform = Transform( 1, 0, 0, 0, 0.848196, 0.529682, 0, -0.529682, 0.848196, -2.30497, 8.27234, -9.71711 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Boxes/box3"]
+shape = SubResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Boxes/box3"]
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="box4" type="RigidBody" parent="Boxes"]
+transform = Transform( 1, 0, 0, 0, 0.848196, 0.529682, 0, -0.529682, 0.848196, -11.2434, 8.27234, 14.3154 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Boxes/box4"]
+shape = SubResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Boxes/box4"]
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="RotPickup" type="Node" parent="."]
+
+[node name="RotationPickup" parent="RotPickup" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.39148, 8.24753 )
+
+[node name="RotationPickup2" parent="RotPickup" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.39148, 11.4638 )
+
+[node name="RotationPickup3" parent="RotPickup" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.39148, 15.2402 )
+
+[node name="RotationPickup4" parent="RotPickup" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.39148, 19.2834 )
+
+[node name="RotationPickup5" parent="RotPickup" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.39148, 23.0521 )
+
+[node name="RotationPickup6" parent="RotPickup" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.39148, 27.1911 )
+
+[node name="RotationPickup7" parent="RotPickup" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.39148, 30.9778 )
+
+[node name="RotationPickup8" parent="RotPickup" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.39148, 35.0223 )
+
+[node name="RotationPickup9" parent="RotPickup" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.39148, 39.6351 )
+
+[node name="RotationPickup10" parent="RotPickup" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.39148, 43.7503 )
+
+[node name="HeadUp" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 3 )
+script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="OverlayMenu"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.490196 )
-
-[node name="VBoxContainer" type="VBoxContainer" parent="OverlayMenu/ColorRect"]
-margin_left = 100.0
-margin_top = 100.0
-margin_right = -100.0
-margin_bottom = -100.0
-custom_constants/separation = 50
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ContinueButton" parent="OverlayMenu/ColorRect/VBoxContainer" instance=ExtResource( 5 )]
-rect_min_size = Vector2( 200, 50 )
-
-[node name="BackToMainButton" parent="OverlayMenu/ColorRect/VBoxContainer" instance=ExtResource( 6 )]
-margin_top = 100.0
-margin_bottom = 150.0
-rect_min_size = Vector2( 200, 50 )
-
-[node name="ExitButton" parent="OverlayMenu/ColorRect/VBoxContainer" instance=ExtResource( 4 )]
-margin_top = 200.0
-margin_bottom = 250.0
-[connection signal="pressed" from="OverlayMenu/ColorRect/VBoxContainer/ContinueButton" to="OverlayMenu" method="_on_ContinueButton_pressed"]
-[connection signal="pressed" from="OverlayMenu/ColorRect/VBoxContainer/BackToMainButton" to="OverlayMenu" method="_on_BackToMainButton_pressed"]
-[connection signal="pressed" from="OverlayMenu/ColorRect/VBoxContainer/ExitButton" to="OverlayMenu" method="_on_ExitButton_pressed"]
+[node name="Label" type="Label" parent="HeadUp"]
+margin_left = 2424.05
+margin_top = 27.5461
+margin_right = 2524.05
+margin_bottom = 77.5461
+rect_min_size = Vector2( 100, 50 )

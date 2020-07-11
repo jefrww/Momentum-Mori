@@ -33,7 +33,9 @@ func _on_ContinueButton_pressed():
 	cont_game()
 
 func _on_BackToMainButton_pressed():
-	get_tree().change_scene("res://Scenes/MainMenu.tscn")
+	var error = get_tree().change_scene("res://Scenes/MainMenu.tscn")
+	if error:
+		print(error)
 
 func _on_ExitButton_pressed():
 	get_tree().quit()
