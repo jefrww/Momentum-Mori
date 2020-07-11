@@ -3,8 +3,8 @@ extends MeshInstance
 
 onready var rotationSpeed = 1
 onready var bounceSpeed = 0.3
-onready var maxHeight = 10
-onready var curHeight = 0.5
+onready var maxHeight = 50
+onready var curHeight = 25
 
 
 

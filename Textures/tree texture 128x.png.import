@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/pill texture 128x.png-3701b550a5ee0faef10678ea45c36977.s3tc.stex"
-path.etc2="res://.import/pill texture 128x.png-3701b550a5ee0faef10678ea45c36977.etc2.stex"
+path.s3tc="res://.import/tree texture 128x.png-8b41f5479dd6888ef4e93e97ba2203e7.s3tc.stex"
+path.etc2="res://.import/tree texture 128x.png-8b41f5479dd6888ef4e93e97ba2203e7.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/pill texture 128x.png"
-dest_files=[ "res://.import/pill texture 128x.png-3701b550a5ee0faef10678ea45c36977.s3tc.stex", "res://.import/pill texture 128x.png-3701b550a5ee0faef10678ea45c36977.etc2.stex" ]
+source_file="res://Textures/tree texture 128x.png"
+dest_files=[ "res://.import/tree texture 128x.png-8b41f5479dd6888ef4e93e97ba2203e7.s3tc.stex", "res://.import/tree texture 128x.png-8b41f5479dd6888ef4e93e97ba2203e7.etc2.stex" ]
 
 [params]
 
@@ -22,7 +22,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=true
-flags/filter=true
+flags/filter=false
 flags/mipmaps=true
 flags/anisotropic=false
 flags/srgb=1

@@ -6,6 +6,8 @@
 [ext_resource path="res://Prefabs/RotationPickup.tscn" type="PackedScene" id=4]
 [ext_resource path="res://UI/CollectedInfo.gd" type="Script" id=5]
 [ext_resource path="res://Textures/Skybox 2560x1280.png" type="Texture" id=6]
+[ext_resource path="res://Prefabs/PhysicsPylon.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Prefabs/PhysicsTree.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Shader" id=6]
 code = "shader_type canvas_item;
@@ -45,10 +47,7 @@ panorama = ExtResource( 6 )
 background_mode = 2
 background_sky = SubResource( 10 )
 ambient_light_color = Color( 0.301961, 0.27451, 0.27451, 1 )
-
-[sub_resource type="BoxShape" id=4]
-
-[sub_resource type="CubeMesh" id=5]
+glow_intensity = 8.0
 
 [node name="Level0" type="Spatial"]
 
@@ -80,7 +79,7 @@ __meta__ = {
 }
 
 [node name="MeshInstance" type="MeshInstance" parent="ViewportContainer/Viewport/Ground"]
-transform = Transform( 49.5376, 0, 0, 0, 1, 0, 0, 0, 49.3904, -0.0475655, -0.639224, 1.84165 )
+transform = Transform( 49.5376, 0, 0, 0, 1, 0, 0, 0, 49.3904, -0.274944, -0.809375, 1.85722 )
 mesh = SubResource( 2 )
 material/0 = null
 
@@ -129,45 +128,26 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37276, -25.9508 )
 
 [node name="Boxes" type="Node" parent="ViewportContainer/Viewport"]
 
-[node name="box" type="RigidBody" parent="ViewportContainer/Viewport/Boxes"]
-transform = Transform( 1, 0, 0, 0, 0.848196, 0.529682, 0, -0.529682, 0.848196, 0, 8.27234, 0 )
+[node name="Pylon" parent="ViewportContainer/Viewport/Boxes" instance=ExtResource( 7 )]
+transform = Transform( 0.821069, -0.400887, 0.406368, 0.570828, 0.576629, -0.584512, 0, 0.711891, 0.70229, 33.3332, 2.18491, 12.3579 )
 
-[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Boxes/box"]
-shape = SubResource( 4 )
+[node name="Pylon2" parent="ViewportContainer/Viewport/Boxes" instance=ExtResource( 7 )]
+transform = Transform( 0.725182, 0.688557, 0, -0.688557, 0.725182, 0, 0, 0, 1, -9.88707, 6.72552, -8.03513 )
 
-[node name="MeshInstance" type="MeshInstance" parent="ViewportContainer/Viewport/Boxes/box"]
-mesh = SubResource( 5 )
-material/0 = null
+[node name="Pylon3" parent="ViewportContainer/Viewport/Boxes" instance=ExtResource( 7 )]
+transform = Transform( 0.307856, 0.647176, -0.697415, -0.903036, 0.429566, 0, 0.299586, 0.629791, 0.716667, 19.0189, 2.18491, -11.8483 )
 
-[node name="box2" type="RigidBody" parent="ViewportContainer/Viewport/Boxes"]
-transform = Transform( 1, 0, 0, 0, 0.848196, 0.529682, 0, -0.529682, 0.848196, 9.34538, 8.27234, 14.3154 )
+[node name="Pylon4" parent="ViewportContainer/Viewport/Boxes" instance=ExtResource( 7 )]
+transform = Transform( 0.412039, -0.712947, 0.567388, 0.911166, 0.322403, -0.256579, 0, 0.622706, 0.782456, 13.1152, 6.30488, 10.0057 )
 
-[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Boxes/box2"]
-shape = SubResource( 4 )
+[node name="Pylon5" parent="ViewportContainer/Viewport/Boxes" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 0.0626859, -0.998033, 0, 0.998033, 0.0626859, 12.902, 10.1221, 0 )
 
-[node name="MeshInstance" type="MeshInstance" parent="ViewportContainer/Viewport/Boxes/box2"]
-mesh = SubResource( 5 )
-material/0 = null
+[node name="Pylon6" parent="ViewportContainer/Viewport/Boxes" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7608, 2.18491, 3.50182 )
 
-[node name="box3" type="RigidBody" parent="ViewportContainer/Viewport/Boxes"]
-transform = Transform( 1, 0, 0, 0, 0.848196, 0.529682, 0, -0.529682, 0.848196, -2.30497, 8.27234, -9.71711 )
-
-[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Boxes/box3"]
-shape = SubResource( 4 )
-
-[node name="MeshInstance" type="MeshInstance" parent="ViewportContainer/Viewport/Boxes/box3"]
-mesh = SubResource( 5 )
-material/0 = null
-
-[node name="box4" type="RigidBody" parent="ViewportContainer/Viewport/Boxes"]
-transform = Transform( 1, 0, 0, 0, 0.848196, 0.529682, 0, -0.529682, 0.848196, -11.2434, 8.27234, 14.3154 )
-
-[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Boxes/box4"]
-shape = SubResource( 4 )
-
-[node name="MeshInstance" type="MeshInstance" parent="ViewportContainer/Viewport/Boxes/box4"]
-mesh = SubResource( 5 )
-material/0 = null
+[node name="Pylon7" parent="ViewportContainer/Viewport/Boxes" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 0.480897, -0.876777, 0, 0.876777, 0.480897, 3.7608, 4.48851, -13.7401 )
 
 [node name="RotPickup" type="Node" parent="ViewportContainer/Viewport"]
 
@@ -211,3 +191,20 @@ __meta__ = {
 }
 
 [node name="Player" parent="ViewportContainer/Viewport" instance=ExtResource( 2 )]
+
+[node name="Trees" type="Node" parent="ViewportContainer/Viewport"]
+
+[node name="Tree" parent="ViewportContainer/Viewport/Trees" instance=ExtResource( 8 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, -14.2356, -0.835526, 0 )
+
+[node name="Tree2" parent="ViewportContainer/Viewport/Trees" instance=ExtResource( 8 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, -14.2356, -0.835526, 5.56991 )
+
+[node name="Tree3" parent="ViewportContainer/Viewport/Trees" instance=ExtResource( 8 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, -14.2356, -0.835526, 11.8377 )
+
+[node name="Tree4" parent="ViewportContainer/Viewport/Trees" instance=ExtResource( 8 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, -14.2356, -0.835526, 18.3146 )
+
+[node name="Tree5" parent="ViewportContainer/Viewport/Trees" instance=ExtResource( 8 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, -14.2356, -0.835526, 24.592 )
