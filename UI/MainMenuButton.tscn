@@ -1,6 +1,4 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://Fonts/fjallaOne50.tres" type="DynamicFont" id=1]
+[gd_scene format=2]
 
 [node name="Button" type="Button"]
 margin_right = 200.0
@@ -14,7 +12,6 @@ __meta__ = {
 [node name="Label" type="Label" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = ExtResource( 1 )
 text = "Label"
 __meta__ = {
 "_edit_use_anchors_": false
