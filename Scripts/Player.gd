@@ -23,12 +23,14 @@ func _ready():
 #func _process(delta):
 #	pass
 func _physics_process(delta):
-	print(velocity.length())
+	#print(velocity.length())
 	velocity += gravityVector * delta
 	player_movement()
 	velocity = move_and_slide(velocity, Vector3.UP)
+	
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
+		print("moving Mouse")
 		rotate_y(-lerp(0, rotSpeed, event.relative.x/10))
 
 func player_movement():
