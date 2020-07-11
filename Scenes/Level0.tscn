@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Prefabs/AccelerationPickUp.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UI/OverlayMenu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Prefabs/RotationPickup.tscn" type="PackedScene" id=4]
 [ext_resource path="res://UI/CollectedInfo.gd" type="Script" id=5]
+[ext_resource path="res://Textures/skyboxupscaled.png" type="Texture" id=6]
 
 [sub_resource type="Shader" id=6]
 code = "shader_type canvas_item;
@@ -36,9 +37,13 @@ shader_param/gradient = SubResource( 9 )
 
 [sub_resource type="CubeMesh" id=2]
 
+[sub_resource type="PanoramaSky" id=10]
+radiance_size = 0
+panorama = ExtResource( 6 )
+
 [sub_resource type="Environment" id=3]
-background_mode = 1
-background_color = Color( 0.776471, 0.65098, 0.65098, 1 )
+background_mode = 2
+background_sky = SubResource( 10 )
 ambient_light_color = Color( 0.301961, 0.27451, 0.27451, 1 )
 
 [sub_resource type="BoxShape" id=4]
@@ -197,10 +202,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.39148, 39.6351 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.39148, 43.7503 )
 
 [node name="CollectedInfo" type="Label" parent="ViewportContainer/Viewport"]
-margin_left = 2424.05
-margin_top = 27.5461
-margin_right = 2524.05
-margin_bottom = 77.5461
+margin_left = 300.0
+margin_top = 5.0
 rect_min_size = Vector2( 100, 50 )
 script = ExtResource( 5 )
 __meta__ = {
