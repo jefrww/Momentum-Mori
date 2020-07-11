@@ -29,13 +29,16 @@ __meta__ = {
 }
 
 [node name="ContinueButton" parent="ColorRect/VBoxContainer" instance=ExtResource( 2 )]
+margin_right = 320.0
 
 [node name="BackToMainButton" parent="ColorRect/VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 100.0
+margin_right = 320.0
 margin_bottom = 150.0
 
 [node name="ExitButton" parent="ColorRect/VBoxContainer" instance=ExtResource( 4 )]
 margin_top = 200.0
+margin_right = 320.0
 margin_bottom = 250.0
 [connection signal="pressed" from="ColorRect/VBoxContainer/ContinueButton" to="." method="_on_ContinueButton_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/BackToMainButton" to="." method="_on_BackToMainButton_pressed"]
