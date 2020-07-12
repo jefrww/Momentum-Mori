@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=2]
+[gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://Textures/RedHouseText128.png" type="Texture" id=1]
 [ext_resource path="res://Textures/RedHouse2Tex256.png" type="Texture" id=2]
@@ -35,6 +35,7 @@
 [ext_resource path="res://Textures/street_texture_128x.png" type="Texture" id=33]
 [ext_resource path="res://Prefabs/hoop.tscn" type="PackedScene" id=34]
 [ext_resource path="res://Scripts/RampRotator.gd" type="Script" id=35]
+[ext_resource path="res://SFX/Ramp.wav" type="AudioStream" id=36]
 
 [sub_resource type="GradientTexture" id=1]
 gradient = ExtResource( 18 )
@@ -173,6 +174,7 @@ shape = SubResource( 4 )
 transform = Transform( 1, 0, 0, 0, 0.766044, -0.642788, 0, 0.642788, 0.766044, -6.1335, 0, 57.3369 )
 script = ExtResource( 35 )
 player = NodePath("../../Player")
+pathToSFX = NodePath("RampFX")
 
 [node name="Ramp3" type="MeshInstance" parent="ViewportContainer/Viewport/Ramps/RampRotator"]
 transform = Transform( -1.55948e-07, 8.01092e-09, -3.57163, -0.170193, 6.7981, 1.78087e-08, 3.57158, 0.596083, -1.55102e-07, 0.0618792, -0.501861, 3.26692 )
@@ -185,6 +187,10 @@ transform = Transform( 1, 0, 3.55271e-15, -1.86265e-09, 1, -1.11022e-16, 3.55271
 [node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Ramps/RampRotator/Ramp3/StaticBody"]
 transform = Transform( 1, 0, 1.06581e-14, -5.58794e-09, 1, -1.11022e-16, 1.42109e-14, -1.77636e-15, 1, 0, 0, 0 )
 shape = SubResource( 7 )
+
+[node name="RampFX" type="AudioStreamPlayer" parent="ViewportContainer/Viewport/Ramps/RampRotator"]
+stream = ExtResource( 36 )
+volume_db = -6.0
 
 [node name="Ramp2" type="MeshInstance" parent="ViewportContainer/Viewport/Ramps"]
 transform = Transform( 3.52473, -0.181062, 3.26489e-13, 0.23546, 6.73959, 2.18102e-14, -3.2685e-13, 0, 3.52863, 20.485, 26.1589, 11.3697 )
@@ -609,8 +615,8 @@ volume_db = -6.0
 autoplay = true
 
 [node name="CollectedInfo" parent="ViewportContainer/Viewport" instance=ExtResource( 22 )]
-margin_left = 250.0
-margin_right = 400.0
+margin_left = 275.0
+margin_right = 410.0
 margin_bottom = 55.0
 
 [node name="Lights" type="Node" parent="ViewportContainer/Viewport"]

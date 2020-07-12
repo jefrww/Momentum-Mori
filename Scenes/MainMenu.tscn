@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://UI/StartButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UI/ExitButton.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Scripts/LogoAnimator.gd" type="Script" id=7]
 [ext_resource path="res://SFX/Menu.ogg" type="AudioStream" id=8]
 [ext_resource path="res://UI/Menu/credits.png" type="Texture" id=9]
+[ext_resource path="res://UI/Menu/controls.png" type="Texture" id=10]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -47,8 +48,15 @@ volume_db = -15.146
 autoplay = true
 
 [node name="Credits" type="Sprite" parent="."]
+position = Vector2( -29, 136 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 9 )
-offset = Vector2( 130, 420 )
+offset = Vector2( 188, 148 )
+
+[node name="Controls" type="Sprite" parent="."]
+position = Vector2( 165, 148 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 10 )
+offset = Vector2( 188, 148 )
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_ExitButton_pressed"]
