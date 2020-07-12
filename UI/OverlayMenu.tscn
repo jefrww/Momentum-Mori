@@ -29,13 +29,13 @@ texture = ExtResource( 4 )
 
 [node name="ContinueButton" parent="." instance=ExtResource( 2 )]
 margin_left = 110.0
-margin_top = 100.0
+margin_top = 120.0
 margin_right = 210.0
 margin_bottom = 150.0
 
 [node name="BackToMainButton" parent="." instance=ExtResource( 3 )]
 margin_left = 110.0
-margin_top = 170.0
+margin_top = 180.0
 margin_right = 210.0
 margin_bottom = 220.0
 
