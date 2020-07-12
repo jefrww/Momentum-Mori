@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Models/HausRot2.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://Textures/RedHouse2Tex256.png" type="Texture" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="BoxShape" id=2]
+
+[node name="HausRotVariant6" type="StaticBody"]
+transform = Transform( -3.96311e-07, 0, 5.99148, 0, 5.99148, 0, -9.06653, 0, -2.61896e-07, -0.792831, -0.0364465, 0.0468063 )
+
+[node name="HausRot2" type="MeshInstance" parent="."]
+transform = Transform( 1.12725, 0, 0, 0, 1, 0, 0, 0, 1, -0.0652919, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = SubResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 0.919667, 0, 4.83254e-09, 0, 2.17574, 0, 8.33981e-09, 0, 1.053, -0.0536456, 2.22525, -0.0269089 )
+shape = SubResource( 2 )

@@ -44,7 +44,7 @@ blend_point_4/node = SubResource( 10 )
 blend_point_4/pos = Vector2( 0, 0 )
 
 [sub_resource type="AnimationNodeBlendTree" id=12]
-graph_offset = Vector2( -15, 39 )
+graph_offset = Vector2( 260, 125 )
 nodes/Animation/node = SubResource( 3 )
 nodes/Animation/position = Vector2( 340, 340 )
 "nodes/Animation 2/node" = SubResource( 2 )
