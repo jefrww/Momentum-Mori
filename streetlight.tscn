@@ -13,5 +13,5 @@ transform = Transform( 2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0 )
 material/0 = SubResource( 1 )
 
 [node name="OmniLight" type="OmniLight" parent="." index="2"]
-transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 2.65069, 0.0158941 )
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 2.6006, 0.0158941 )
 light_energy = 8.0
