@@ -129,7 +129,6 @@ mesh = ExtResource( 13 )
 material/0 = SubResource( 5 )
 
 [node name="StaticBody" type="StaticBody" parent="ViewportContainer/Viewport/Ramps/Ramp"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Ramps/Ramp/StaticBody"]
 transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 0, 0, 0 )
@@ -217,7 +216,6 @@ transform = Transform( -1.77636e-15, 2.98023e-08, -1, -0.317629, 0.97283, 2.8992
 
 [node name="Player" parent="ViewportContainer/Viewport" instance=ExtResource( 16 )]
 transform = Transform( 0.999797, 0, 0.0201398, 0, 1, 0, -0.0201398, 0, 0.999797, 93.7205, 1.48941, 59.5861 )
-acceleration = 19
 decay = 0.1
 pathToSFX = NodePath("../../SFX")
 jump = ExtResource( 26 )
