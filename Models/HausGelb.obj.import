@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/HausGelb.obj-c13c9d11565e2fc7e1ee1d8d641701a2.mesh"
+
+[deps]
+
+files=[ "res://.import/HausGelb.obj-c13c9d11565e2fc7e1ee1d8d641701a2.mesh" ]
+
+source_file="res://Models/HausGelb.obj"
+dest_files=[ "res://.import/HausGelb.obj-c13c9d11565e2fc7e1ee1d8d641701a2.mesh", "res://.import/HausGelb.obj-c13c9d11565e2fc7e1ee1d8d641701a2.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
