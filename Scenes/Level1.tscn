@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://Textures/RedHouseText128.png" type="Texture" id=1]
 [ext_resource path="res://Textures/RedHouse2Tex256.png" type="Texture" id=2]
@@ -21,6 +21,8 @@
 [ext_resource path="res://UI/OverlayMenu.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Prefabs/AccelerationPickUp.tscn" type="PackedScene" id=20]
 [ext_resource path="res://SFX/Music.ogg" type="AudioStream" id=21]
+[ext_resource path="res://SFX/Jump.wav" type="AudioStream" id=22]
+[ext_resource path="res://SFX/Coin.wav" type="AudioStream" id=23]
 
 [sub_resource type="GradientTexture" id=1]
 gradient = ExtResource( 18 )
@@ -235,6 +237,9 @@ shape = SubResource( 19 )
 
 [node name="Player" parent="ViewportContainer/Viewport" instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48941, 57.477 )
+pathToSFX = NodePath("../SFX")
+jump = ExtResource( 22 )
+coin = ExtResource( 23 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="ViewportContainer/Viewport"]
 environment = SubResource( 21 )
@@ -287,3 +292,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.9423, 18.3392, 33.8321 )
 stream = ExtResource( 21 )
 volume_db = -6.0
 autoplay = true
+
+[node name="SFX" type="AudioStreamPlayer" parent="ViewportContainer/Viewport"]
+stream = ExtResource( 22 )

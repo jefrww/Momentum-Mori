@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/PSX.wav-2d3ac4ea69031226baeaa737e489205d.sample"
+
+[deps]
+
+source_file="res://SFX/PSX.wav"
+dest_files=[ "res://.import/PSX.wav-2d3ac4ea69031226baeaa737e489205d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

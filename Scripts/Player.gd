@@ -7,10 +7,14 @@ export var jumpPower = 10
 export var gravity = 9.8
 onready var gravityVector = Vector3.DOWN * gravity
 export var rotSpeed = 0.1
+export(NodePath) var pathToSFX
+export(AudioStream) var jump
+export(AudioStream) var coin
 
 var velocity = Vector3()
 onready var collected = 0
 export var winCondition = 100
+onready var soundPlayer = get_node(pathToSFX) 
 
 var jumping = false
 var jumpduration = 0
@@ -18,6 +22,7 @@ var jumpduration = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
 
 func _process(delta):
 	updateAnim()
@@ -49,6 +54,14 @@ func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		rotate_y(-lerp(0, rotSpeed, event.relative.x/10))
 
+func _play_jump_sound():
+	soundPlayer.stream = jump
+	soundPlayer.play(0.0)
+	
+func _play_coin_sound():
+	soundPlayer.stream = coin
+	soundPlayer.play(0.0)	
+
 func player_movement():
 	var moved = false
 	var newVelocity = velocity
@@ -72,6 +85,7 @@ func player_movement():
 	if Input.is_action_pressed("ui_accept") && is_on_floor():
 		print("Jump")
 		get_child(2).get_child(2).set("parameters/Jump/active", true)
+		_play_jump_sound()
 		newVelocity.y = jumpPower
 		moved = true
 		jumping = true
