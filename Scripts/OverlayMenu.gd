@@ -23,10 +23,14 @@ func pause_game():
 	get_tree().paused = true
 	visible = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	get_child(0).play(0.0)
+	
+	
 func cont_game():
 	get_tree().paused = false
 	visible = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	get_child(0).stop()
 
 
 func _on_ContinueButton_pressed():
