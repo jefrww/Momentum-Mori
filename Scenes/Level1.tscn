@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://Textures/RedHouseText128.png" type="Texture" id=1]
 [ext_resource path="res://Textures/RedHouse2Tex256.png" type="Texture" id=2]
@@ -21,8 +21,9 @@
 [ext_resource path="res://UI/OverlayMenu.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Prefabs/AccelerationPickUp.tscn" type="PackedScene" id=20]
 [ext_resource path="res://SFX/Music.ogg" type="AudioStream" id=21]
-[ext_resource path="res://SFX/Jump.wav" type="AudioStream" id=22]
-[ext_resource path="res://SFX/Coin.wav" type="AudioStream" id=23]
+[ext_resource path="res://Prefabs/CollectedInfo.tscn" type="PackedScene" id=22]
+[ext_resource path="res://streetlight.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Prefabs/Taxi.tscn" type="PackedScene" id=24]
 
 [sub_resource type="GradientTexture" id=1]
 gradient = ExtResource( 18 )
@@ -30,6 +31,31 @@ gradient = ExtResource( 18 )
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 15 )
 shader_param/gradient = SubResource( 1 )
+
+[sub_resource type="SpatialMaterial" id=14]
+albedo_texture = ExtResource( 9 )
+uv1_scale = Vector3( 10, 10, 10 )
+
+[sub_resource type="BoxShape" id=15]
+
+[sub_resource type="SpatialMaterial" id=16]
+albedo_texture = ExtResource( 12 )
+
+[sub_resource type="ConcavePolygonShape" id=17]
+data = PoolVector3Array( -0.7455, 0.1295, -0.9746, -1, -0.0024, -0.9746, -0.5112, 0.2412, -0.9746, -0.5112, 0.2412, -0.9746, -1, -0.0024, -0.9746, -0.3048, 0.3315, -0.9746, -0.3048, 0.3315, -0.9746, -1, -0.0024, -0.9746, 0.0169, 0.4789, -0.9746, 0.0169, 0.4789, -0.9746, -1, -0.0024, -0.9746, 0.3447, 0.6173, -0.9746, 0.3447, 0.6173, -0.9746, -1, -0.0024, -0.9746, 0.7315, 0.7966, -0.9746, 0.7315, 0.7966, -0.9746, -1, -0.0024, -0.9746, 1, 0.7966, -0.9746, 1, 0.7966, -0.9746, -1, -0.0024, -0.9746, 1, -0.0024, -0.9746, 1, 0.7966, -0.9746, 1, -0.0024, -0.9746, 1, 0.7966, 1.0254, 1, 0.7966, 1.0254, 1, -0.0024, -0.9746, 1, -0.0024, 1.0254, -0.7455, 0.1295, 1.0254, -1, -0.0024, 1.0254, -0.7455, 0.1295, -0.9746, -0.7455, 0.1295, -0.9746, -1, -0.0024, 1.0254, -1, -0.0024, -0.9746, 1, -0.0024, -0.9746, -1, -0.0024, -0.9746, 1, -0.0024, 1.0254, 1, -0.0024, 1.0254, -1, -0.0024, -0.9746, -1, -0.0024, 1.0254, 0.7315, 0.7966, -0.9746, 1, 0.7966, -0.9746, 0.7315, 0.7966, 1.0254, 0.7315, 0.7966, 1.0254, 1, 0.7966, -0.9746, 1, 0.7966, 1.0254, -0.3048, 0.3315, -0.9746, -0.3048, 0.3315, 1.0254, -0.5112, 0.2412, -0.9746, -0.5112, 0.2412, -0.9746, -0.3048, 0.3315, 1.0254, -0.5112, 0.2412, 1.0254, -0.5112, 0.2412, -0.9746, -0.5112, 0.2412, 1.0254, -0.7455, 0.1295, -0.9746, -0.7455, 0.1295, -0.9746, -0.5112, 0.2412, 1.0254, -0.7455, 0.1295, 1.0254, 0.0169, 0.4789, -0.9746, 0.0169, 0.4789, 1.0254, -0.3048, 0.3315, -0.9746, -0.3048, 0.3315, -0.9746, 0.0169, 0.4789, 1.0254, -0.3048, 0.3315, 1.0254, 0.7315, 0.7966, -0.9746, 0.7315, 0.7966, 1.0254, 0.3447, 0.6173, -0.9746, 0.3447, 0.6173, -0.9746, 0.7315, 0.7966, 1.0254, 0.3447, 0.6173, 1.0254, 0.3447, 0.6173, -0.9746, 0.3447, 0.6173, 1.0254, 0.0169, 0.4789, -0.9746, 0.0169, 0.4789, -0.9746, 0.3447, 0.6173, 1.0254, 0.0169, 0.4789, 1.0254, 1, 0.7966, 1.0254, 1, -0.0024, 1.0254, 0.7315, 0.7966, 1.0254, 0.7315, 0.7966, 1.0254, 1, -0.0024, 1.0254, 0.3447, 0.6173, 1.0254, 0.3447, 0.6173, 1.0254, 1, -0.0024, 1.0254, 0.0169, 0.4789, 1.0254, 0.0169, 0.4789, 1.0254, 1, -0.0024, 1.0254, -0.3048, 0.3315, 1.0254, -0.3048, 0.3315, 1.0254, 1, -0.0024, 1.0254, -0.5112, 0.2412, 1.0254, -0.5112, 0.2412, 1.0254, 1, -0.0024, 1.0254, -0.7455, 0.1295, 1.0254, -0.7455, 0.1295, 1.0254, 1, -0.0024, 1.0254, -1, -0.0024, 1.0254 )
+
+[sub_resource type="SpatialMaterial" id=18]
+albedo_texture = ExtResource( 11 )
+
+[sub_resource type="ConcavePolygonShape" id=19]
+data = PoolVector3Array( -0.8204, 0.0754, -1, -1, -0.0024, -1, -0.1014, 0.5356, -1, -0.1014, 0.5356, -1, -1, -0.0024, -1, 1, -0.0024, -1, 1, 1.9976, -1, 1, 1.632, -1, 1, 1.9976, 1, 1, 1.9976, 1, 1, 1.632, -1, 1, 1.632, 1, -0.8204, 0.0754, 1, -1, -0.0024, 1, -0.8204, 0.0754, -1, -0.8204, 0.0754, -1, -1, -0.0024, 1, -1, -0.0024, -1, 1, -0.0024, -1, -1, -0.0024, -1, 1, -0.0024, 1, 1, -0.0024, 1, -1, -0.0024, -1, -1, -0.0024, 1, 0.7315, 1.9976, -1, 1, 1.9976, -1, 0.7315, 1.9976, 1, 0.7315, 1.9976, 1, 1, 1.9976, -1, 1, 1.9976, 1, 0.4431, 1.08, -1, 0.4431, 1.08, 1, -0.1014, 0.5356, -1, -0.1014, 0.5356, -1, 0.4431, 1.08, 1, -0.1014, 0.5356, 1, -0.1014, 0.5356, -1, -0.1014, 0.5356, 1, -0.8204, 0.0754, -1, -0.8204, 0.0754, -1, -0.1014, 0.5356, 1, -0.8204, 0.0754, 1, 0.6647, 1.423, -1, 0.6647, 1.423, 1, 0.4431, 1.08, -1, 0.4431, 1.08, -1, 0.6647, 1.423, 1, 0.4431, 1.08, 1, 0.7315, 1.9976, -1, 0.7315, 1.9976, 1, 0.7256, 1.6427, -1, 0.7256, 1.6427, -1, 0.7315, 1.9976, 1, 0.7256, 1.6427, 1, 0.7256, 1.6427, -1, 0.7256, 1.6427, 1, 0.6647, 1.423, -1, 0.6647, 1.423, -1, 0.7256, 1.6427, 1, 0.6647, 1.423, 1, 1, 1.632, 1, 1, -0.0024, 1, 1, 1.9976, 1, 1, 1.9976, 1, 1, -0.0024, 1, 0.7315, 1.9976, 1, 0.7315, 1.9976, 1, 1, -0.0024, 1, 0.7256, 1.6427, 1, 0.7256, 1.6427, 1, 1, -0.0024, 1, 0.6647, 1.423, 1, 0.6647, 1.423, 1, 1, -0.0024, 1, 0.4431, 1.08, 1, 0.4431, 1.08, 1, 1, -0.0024, 1, -0.1014, 0.5356, 1, -0.1014, 0.5356, 1, 1, -0.0024, 1, -0.8204, 0.0754, 1, -0.8204, 0.0754, 1, 1, -0.0024, 1, -1, -0.0024, 1, -0.1014, 0.5356, -1, 1, -0.0024, -1, 0.4431, 1.08, -1, 0.4431, 1.08, -1, 1, -0.0024, -1, 0.6647, 1.423, -1, 0.7256, 1.6427, -1, 0.6647, 1.423, -1, 1, 1.632, -1, 1, 1.632, -1, 0.6647, 1.423, -1, 1, -0.0024, -1, 1, 1.632, -1, 1, -0.0024, -1, 1, 1.632, 1, 1, 1.632, 1, 1, -0.0024, -1, 1, -0.0024, 1, 0.7256, 1.6427, -1, 1, 1.632, -1, 0.7315, 1.9976, -1, 0.7315, 1.9976, -1, 1, 1.632, -1, 1, 1.9976, -1 )
+
+[sub_resource type="PanoramaSky" id=20]
+panorama = ExtResource( 17 )
+
+[sub_resource type="Environment" id=21]
+background_mode = 2
+background_sky = SubResource( 20 )
 
 [sub_resource type="SpatialMaterial" id=3]
 albedo_texture = ExtResource( 4 )
@@ -60,31 +86,6 @@ albedo_texture = ExtResource( 10 )
 
 [sub_resource type="BoxShape" id=13]
 
-[sub_resource type="SpatialMaterial" id=14]
-albedo_texture = ExtResource( 9 )
-uv1_scale = Vector3( 10, 10, 10 )
-
-[sub_resource type="BoxShape" id=15]
-
-[sub_resource type="SpatialMaterial" id=16]
-albedo_texture = ExtResource( 12 )
-
-[sub_resource type="ConcavePolygonShape" id=17]
-data = PoolVector3Array( -0.7455, 0.1295, -0.9746, -1, -0.0024, -0.9746, -0.5112, 0.2412, -0.9746, -0.5112, 0.2412, -0.9746, -1, -0.0024, -0.9746, -0.3048, 0.3315, -0.9746, -0.3048, 0.3315, -0.9746, -1, -0.0024, -0.9746, 0.0169, 0.4789, -0.9746, 0.0169, 0.4789, -0.9746, -1, -0.0024, -0.9746, 0.3447, 0.6173, -0.9746, 0.3447, 0.6173, -0.9746, -1, -0.0024, -0.9746, 0.7315, 0.7966, -0.9746, 0.7315, 0.7966, -0.9746, -1, -0.0024, -0.9746, 1, 0.7966, -0.9746, 1, 0.7966, -0.9746, -1, -0.0024, -0.9746, 1, -0.0024, -0.9746, 1, 0.7966, -0.9746, 1, -0.0024, -0.9746, 1, 0.7966, 1.0254, 1, 0.7966, 1.0254, 1, -0.0024, -0.9746, 1, -0.0024, 1.0254, -0.7455, 0.1295, 1.0254, -1, -0.0024, 1.0254, -0.7455, 0.1295, -0.9746, -0.7455, 0.1295, -0.9746, -1, -0.0024, 1.0254, -1, -0.0024, -0.9746, 1, -0.0024, -0.9746, -1, -0.0024, -0.9746, 1, -0.0024, 1.0254, 1, -0.0024, 1.0254, -1, -0.0024, -0.9746, -1, -0.0024, 1.0254, 0.7315, 0.7966, -0.9746, 1, 0.7966, -0.9746, 0.7315, 0.7966, 1.0254, 0.7315, 0.7966, 1.0254, 1, 0.7966, -0.9746, 1, 0.7966, 1.0254, -0.3048, 0.3315, -0.9746, -0.3048, 0.3315, 1.0254, -0.5112, 0.2412, -0.9746, -0.5112, 0.2412, -0.9746, -0.3048, 0.3315, 1.0254, -0.5112, 0.2412, 1.0254, -0.5112, 0.2412, -0.9746, -0.5112, 0.2412, 1.0254, -0.7455, 0.1295, -0.9746, -0.7455, 0.1295, -0.9746, -0.5112, 0.2412, 1.0254, -0.7455, 0.1295, 1.0254, 0.0169, 0.4789, -0.9746, 0.0169, 0.4789, 1.0254, -0.3048, 0.3315, -0.9746, -0.3048, 0.3315, -0.9746, 0.0169, 0.4789, 1.0254, -0.3048, 0.3315, 1.0254, 0.7315, 0.7966, -0.9746, 0.7315, 0.7966, 1.0254, 0.3447, 0.6173, -0.9746, 0.3447, 0.6173, -0.9746, 0.7315, 0.7966, 1.0254, 0.3447, 0.6173, 1.0254, 0.3447, 0.6173, -0.9746, 0.3447, 0.6173, 1.0254, 0.0169, 0.4789, -0.9746, 0.0169, 0.4789, -0.9746, 0.3447, 0.6173, 1.0254, 0.0169, 0.4789, 1.0254, 1, 0.7966, 1.0254, 1, -0.0024, 1.0254, 0.7315, 0.7966, 1.0254, 0.7315, 0.7966, 1.0254, 1, -0.0024, 1.0254, 0.3447, 0.6173, 1.0254, 0.3447, 0.6173, 1.0254, 1, -0.0024, 1.0254, 0.0169, 0.4789, 1.0254, 0.0169, 0.4789, 1.0254, 1, -0.0024, 1.0254, -0.3048, 0.3315, 1.0254, -0.3048, 0.3315, 1.0254, 1, -0.0024, 1.0254, -0.5112, 0.2412, 1.0254, -0.5112, 0.2412, 1.0254, 1, -0.0024, 1.0254, -0.7455, 0.1295, 1.0254, -0.7455, 0.1295, 1.0254, 1, -0.0024, 1.0254, -1, -0.0024, 1.0254 )
-
-[sub_resource type="SpatialMaterial" id=18]
-albedo_texture = ExtResource( 11 )
-
-[sub_resource type="ConcavePolygonShape" id=19]
-data = PoolVector3Array( -0.8204, 0.0754, -1, -1, -0.0024, -1, -0.1014, 0.5356, -1, -0.1014, 0.5356, -1, -1, -0.0024, -1, 1, -0.0024, -1, 1, 1.9976, -1, 1, 1.632, -1, 1, 1.9976, 1, 1, 1.9976, 1, 1, 1.632, -1, 1, 1.632, 1, -0.8204, 0.0754, 1, -1, -0.0024, 1, -0.8204, 0.0754, -1, -0.8204, 0.0754, -1, -1, -0.0024, 1, -1, -0.0024, -1, 1, -0.0024, -1, -1, -0.0024, -1, 1, -0.0024, 1, 1, -0.0024, 1, -1, -0.0024, -1, -1, -0.0024, 1, 0.7315, 1.9976, -1, 1, 1.9976, -1, 0.7315, 1.9976, 1, 0.7315, 1.9976, 1, 1, 1.9976, -1, 1, 1.9976, 1, 0.4431, 1.08, -1, 0.4431, 1.08, 1, -0.1014, 0.5356, -1, -0.1014, 0.5356, -1, 0.4431, 1.08, 1, -0.1014, 0.5356, 1, -0.1014, 0.5356, -1, -0.1014, 0.5356, 1, -0.8204, 0.0754, -1, -0.8204, 0.0754, -1, -0.1014, 0.5356, 1, -0.8204, 0.0754, 1, 0.6647, 1.423, -1, 0.6647, 1.423, 1, 0.4431, 1.08, -1, 0.4431, 1.08, -1, 0.6647, 1.423, 1, 0.4431, 1.08, 1, 0.7315, 1.9976, -1, 0.7315, 1.9976, 1, 0.7256, 1.6427, -1, 0.7256, 1.6427, -1, 0.7315, 1.9976, 1, 0.7256, 1.6427, 1, 0.7256, 1.6427, -1, 0.7256, 1.6427, 1, 0.6647, 1.423, -1, 0.6647, 1.423, -1, 0.7256, 1.6427, 1, 0.6647, 1.423, 1, 1, 1.632, 1, 1, -0.0024, 1, 1, 1.9976, 1, 1, 1.9976, 1, 1, -0.0024, 1, 0.7315, 1.9976, 1, 0.7315, 1.9976, 1, 1, -0.0024, 1, 0.7256, 1.6427, 1, 0.7256, 1.6427, 1, 1, -0.0024, 1, 0.6647, 1.423, 1, 0.6647, 1.423, 1, 1, -0.0024, 1, 0.4431, 1.08, 1, 0.4431, 1.08, 1, 1, -0.0024, 1, -0.1014, 0.5356, 1, -0.1014, 0.5356, 1, 1, -0.0024, 1, -0.8204, 0.0754, 1, -0.8204, 0.0754, 1, 1, -0.0024, 1, -1, -0.0024, 1, -0.1014, 0.5356, -1, 1, -0.0024, -1, 0.4431, 1.08, -1, 0.4431, 1.08, -1, 1, -0.0024, -1, 0.6647, 1.423, -1, 0.7256, 1.6427, -1, 0.6647, 1.423, -1, 1, 1.632, -1, 1, 1.632, -1, 0.6647, 1.423, -1, 1, -0.0024, -1, 1, 1.632, -1, 1, -0.0024, -1, 1, 1.632, 1, 1, 1.632, 1, 1, -0.0024, -1, 1, -0.0024, 1, 0.7256, 1.6427, -1, 1, 1.632, -1, 0.7315, 1.9976, -1, 0.7315, 1.9976, -1, 1, 1.632, -1, 1, 1.9976, -1 )
-
-[sub_resource type="PanoramaSky" id=20]
-panorama = ExtResource( 17 )
-
-[sub_resource type="Environment" id=21]
-background_mode = 2
-background_sky = SubResource( 20 )
-
 [node name="Spatial" type="Spatial"]
 
 [node name="ViewportContainer" type="ViewportContainer" parent="."]
@@ -103,99 +104,8 @@ size = Vector2( 320, 240 )
 handle_input_locally = false
 render_target_update_mode = 3
 
-[node name="HausGelb" type="StaticBody" parent="ViewportContainer/Viewport"]
-transform = Transform( 5.99148, 0, 0, 0, 5.99148, 0, 0, 0, 5.99148, 1.72165, -0.0364465, 10.3054 )
-
-[node name="HausGelb" type="MeshInstance" parent="ViewportContainer/Viewport/HausGelb"]
-transform = Transform( 0.999991, 0.00422368, 0, -0.00422368, 0.999991, 0, 0, 0, 1, 0.0419815, -0.00390543, 0.20581 )
-mesh = ExtResource( 6 )
-material/0 = SubResource( 3 )
-
-[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/HausGelb"]
-transform = Transform( 0.855895, 0, 0, 0, 1.48772, 0, 0, 0, 1, 0, 1.22703, 0 )
-shape = SubResource( 4 )
-
-[node name="HausRot" type="StaticBody" parent="ViewportContainer/Viewport"]
-transform = Transform( 5.99148, 0, 0, 0, 5.99148, 0, 0, 0, 5.99148, -9.07772, -0.0364465, 10.3054 )
-
-[node name="HausRot" type="MeshInstance" parent="ViewportContainer/Viewport/HausRot"]
-transform = Transform( 0.999991, 0.00422368, 0, -0.00422368, 0.999991, 0, 0, 0, 1, -0.00484657, 0.00390543, 0 )
-mesh = ExtResource( 8 )
-material/0 = SubResource( 5 )
-
-[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/HausRot"]
-transform = Transform( 1, 0, 0, 0, 1.88271, 0, 0, 0, 1, 0.0729218, 1.61478, 0 )
-shape = SubResource( 6 )
-
-[node name="HausRotVariant" type="StaticBody" parent="ViewportContainer/Viewport"]
-transform = Transform( 5.99148, 0, 0, 0, 5.99148, 0, 0, 0, 5.99148, 21.9755, -0.0364465, 10.3054 )
-
-[node name="HausRot2" type="MeshInstance" parent="ViewportContainer/Viewport/HausRotVariant"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.134877, 0, 0 )
-mesh = ExtResource( 5 )
-material/0 = SubResource( 7 )
-
-[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/HausRotVariant"]
-transform = Transform( 0.793585, 0, 0, 0, 2.17574, 0, 0, 0, 1.053, -0.134877, 2.22525, -0.0269095 )
-shape = SubResource( 8 )
-
-[node name="OfficeTower" type="StaticBody" parent="ViewportContainer/Viewport"]
-transform = Transform( 5.99148, 0, 0, 0, 5.99148, 0, 0, 0, 5.99148, -26.5473, -0.0364465, -19.2873 )
-
-[node name="OfficeTower" type="MeshInstance" parent="ViewportContainer/Viewport/OfficeTower"]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -0.552968, 0, 0.0208902 )
-mesh = ExtResource( 7 )
-material/0 = SubResource( 9 )
-
-[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/OfficeTower"]
-transform = Transform( 3.01014, 0, 0, 0, 3.92785, 0, 0, 0, 3.01014, -0.0691071, 3.82009, 0.0463572 )
-shape = SubResource( 10 )
-
-[node name="OfficeTower2" type="StaticBody" parent="ViewportContainer/Viewport"]
-transform = Transform( 5.99148, 0, 0, 0, 5.99148, 0, 0, 0, 5.99148, 57.6049, -0.0364465, 28.4722 )
-physics_material_override = SubResource( 11 )
-
-[node name="OfficeTower" type="MeshInstance" parent="ViewportContainer/Viewport/OfficeTower2"]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -0.552967, 0, 0.714347 )
-mesh = ExtResource( 7 )
-material/0 = SubResource( 9 )
-
-[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/OfficeTower2"]
-transform = Transform( 3.01014, 0, 0, 0, 3.92785, 0, 0, 0, 3.01014, -0.0691071, 3.82009, 0.0463572 )
-shape = SubResource( 10 )
-
-[node name="Brickwall" type="StaticBody" parent="ViewportContainer/Viewport"]
-transform = Transform( -1.02494e-07, 4.93698, -1.44305e-07, 0, -2.15802e-07, -3.30131, -0.629105, -8.04338e-07, 2.35102e-14, 11.7911, 2.70913, 15.1581 )
-
-[node name="BrickWall" type="CSGBox" parent="ViewportContainer/Viewport/Brickwall"]
-transform = Transform( 1, 1.13687e-13, 0, 0, 1, -7.7584e-22, 0, -7.10543e-15, 1, 0, 0, 0 )
-material = SubResource( 12 )
-
-[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Brickwall"]
-shape = SubResource( 13 )
-
-[node name="Brickwall2" type="StaticBody" parent="ViewportContainer/Viewport"]
-transform = Transform( -1.02494e-07, 4.93698, -1.44305e-07, 0, -2.15802e-07, -3.30131, -0.629105, -8.04338e-07, 2.35102e-14, 29.5673, 2.70913, 15.1581 )
-
-[node name="BrickWall" type="CSGBox" parent="ViewportContainer/Viewport/Brickwall2"]
-transform = Transform( 1, 1.13687e-13, 0, 0, 1, -7.7584e-22, 0, -7.10543e-15, 1, 0, 0, 0 )
-material = SubResource( 12 )
-
-[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Brickwall2"]
-shape = SubResource( 13 )
-
-[node name="Brickwall3" type="StaticBody" parent="ViewportContainer/Viewport"]
-transform = Transform( -1.02494e-07, 4.93698, -1.44305e-07, 0, -2.15802e-07, -3.30131, -0.629105, -8.04338e-07, 2.35102e-14, 39.4276, 2.70913, 15.1581 )
-
-[node name="BrickWall" type="CSGBox" parent="ViewportContainer/Viewport/Brickwall3"]
-transform = Transform( 1, 1.13687e-13, 0, 0, 1, -7.7584e-22, 0, -7.10543e-15, 1, 0, 0, 0 )
-material = SubResource( 12 )
-
-[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Brickwall3"]
-shape = SubResource( 13 )
-
 [node name="Floor" type="StaticBody" parent="ViewportContainer/Viewport"]
-transform = Transform( 299.574, 0, 0, 0, 5.99148, 0, 0, 0, 299.574, 11.4101, -5.98165, 10.3054 )
+transform = Transform( 299.574, 0, 0, 0, 5.99148, 0, 0, 0, 299.574, 11.4101, -5.98165, 197.328 )
 
 [node name="Floor" type="CSGBox" parent="ViewportContainer/Viewport/Floor"]
 material = SubResource( 14 )
@@ -236,10 +146,7 @@ material/0 = SubResource( 18 )
 shape = SubResource( 19 )
 
 [node name="Player" parent="ViewportContainer/Viewport" instance=ExtResource( 16 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48941, 57.477 )
-pathToSFX = NodePath("../SFX")
-jump = ExtResource( 22 )
-coin = ExtResource( 23 )
+transform = Transform( 0.999797, 0, 0.0201398, 0, 1, 0, -0.0201398, 0, 0.999797, 93.7205, 1.48941, 59.5861 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="ViewportContainer/Viewport"]
 environment = SubResource( 21 )
@@ -250,25 +157,37 @@ transform = Transform( 1, 0, 0, 0, 0.651158, 0.758942, 0, -0.758942, 0.651158, -
 [node name="Pills" type="Node" parent="ViewportContainer/Viewport"]
 
 [node name="AccelerationPickUp" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42.305, 48.66, 21.3055 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 46.3302, 48.66, 21.3055 )
+
+[node name="AccelerationPickUp14" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 93.8649, 4.25319, 51.4632 )
+
+[node name="AccelerationPickUp15" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 69.4689, 1.40499, 77.1365 )
+
+[node name="AccelerationPickUp17" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 58.169, 3.72891, 73.5318 )
+
+[node name="AccelerationPickUp16" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.4559, 1.40499, 77.1365 )
 
 [node name="AccelerationPickUp2" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42.305, 48.66, 25.5841 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 46.3302, 48.66, 25.5841 )
 
 [node name="AccelerationPickUp3" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42.305, 48.66, 30.0311 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 46.3302, 48.66, 30.0311 )
 
 [node name="AccelerationPickUp4" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42.305, 48.66, 34.2072 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 46.3302, 48.66, 34.2072 )
 
 [node name="AccelerationPickUp5" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42.305, 48.66, 38.2231 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 46.3302, 48.66, 38.2231 )
 
 [node name="AccelerationPickUp6" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42.305, 48.66, 42.6114 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 46.3302, 48.66, 42.6114 )
 
 [node name="AccelerationPickUp7" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42.305, 48.66, 47.0098 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 46.3302, 48.66, 47.0098 )
 
 [node name="AccelerationPickUp8" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34305, 9.46873, 33.8321 )
@@ -280,18 +199,523 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34305, 13.902, 33.8321 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36724, 18.6534, 33.8321 )
 
 [node name="AccelerationPickUp11" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.9423, 8.96093, 33.8321 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.428, 8.96093, 33.8321 )
 
 [node name="AccelerationPickUp12" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.9423, 13.4462, 33.8321 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.428, 13.4462, 33.8321 )
 
 [node name="AccelerationPickUp13" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.9423, 18.3392, 33.8321 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.428, 18.3392, 33.8321 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ViewportContainer/Viewport"]
 stream = ExtResource( 21 )
 volume_db = -6.0
 autoplay = true
 
-[node name="SFX" type="AudioStreamPlayer" parent="ViewportContainer/Viewport"]
-stream = ExtResource( 22 )
+[node name="CollectedInfo" parent="ViewportContainer/Viewport" instance=ExtResource( 22 )]
+margin_left = 250.0
+margin_right = 400.0
+margin_bottom = 55.0
+
+[node name="Lights" type="Node" parent="ViewportContainer/Viewport"]
+
+[node name="loemp" parent="ViewportContainer/Viewport/Lights" instance=ExtResource( 23 )]
+transform = Transform( 2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 99.5083, 0, 60.0005 )
+
+[node name="loemp2" parent="ViewportContainer/Viewport/Lights" instance=ExtResource( 23 )]
+transform = Transform( 2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 86.8255, 0, 59.7861 )
+
+[node name="Houses" type="Node" parent="ViewportContainer/Viewport"]
+
+[node name="HausGelb" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( 5.99148, 0, 0, 0, 5.99148, 0, 0, 0, 5.99148, -16.4515, -0.0364465, 10.3054 )
+
+[node name="HausGelb" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/HausGelb"]
+transform = Transform( 0.999991, 0.00422368, 0, -0.00422368, 0.999991, 0, 0, 0, 1, 1.12, -0.00390543, 0.20581 )
+mesh = ExtResource( 6 )
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/HausGelb"]
+transform = Transform( 0.855895, 0, 0, 0, 1.48772, 0, 0, 0, 1, 0, 1.22703, 0 )
+shape = SubResource( 4 )
+
+[node name="HausGelb6" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( 11.2681, 0, 0, 0, 5.99148, 0, 0, 0, 5.99148, -35.4682, -0.0364465, 10.3054 )
+
+[node name="HausGelb" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/HausGelb6"]
+transform = Transform( 0.999991, 0.00422368, 0, -0.00422368, 0.999991, 0, 0, 0, 1, 0.0419815, -0.00390543, 0.20581 )
+mesh = ExtResource( 6 )
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/HausGelb6"]
+transform = Transform( 0.855895, 0, 0, 0, 1.48772, 0, 0, 0, 1, 0, 1.22703, 0 )
+shape = SubResource( 4 )
+
+[node name="HausGelb7" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( 6.15602, 0, 0, 0, 9.21279, 0, 0, 0, 5.99148, -48.9623, -0.0364465, 10.3054 )
+
+[node name="HausGelb" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/HausGelb7"]
+transform = Transform( 0.999991, 0.00422368, 0, -0.00422368, 0.999991, 0, 0, 0, 1, 0.0419815, -0.00390543, 0.20581 )
+mesh = ExtResource( 6 )
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/HausGelb7"]
+transform = Transform( 0.855895, 0, 0, 0, 1.48772, 0, 0, 0, 1, 0, 1.22703, 0 )
+shape = SubResource( 4 )
+
+[node name="HausGelb3" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( 5.99148, 0, 0, 0, 5.99148, 0, 0, 0, 5.99148, 101.969, -0.0364465, 50.7703 )
+
+[node name="HausGelb" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/HausGelb3"]
+transform = Transform( 0.999991, 0.00422368, 0, -0.00422368, 0.999991, 0, 0, 0, 1, -0.027833, -0.00390543, 0.20581 )
+mesh = ExtResource( 6 )
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/HausGelb3"]
+transform = Transform( 0.855895, 0, 0, 0, 1.48772, 0, 0, 0, 1, 0, 1.22703, 0 )
+shape = SubResource( 4 )
+
+[node name="HausGelb4" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( -2.61896e-07, 0, -5.99148, 0, 5.99148, 0, 5.99148, 0, -2.61896e-07, 112.726, -0.0364465, 70.4695 )
+
+[node name="HausGelb" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/HausGelb4"]
+transform = Transform( 0.999991, 0.00422368, 0, -0.00422368, 0.999991, 0, 0, 0, 1, -0.027833, -0.00390543, 0.20581 )
+mesh = ExtResource( 6 )
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/HausGelb4"]
+transform = Transform( 0.855895, 0, 0, 0, 1.48772, 0, 0, 0, 1, 0, 1.22703, 0 )
+shape = SubResource( 4 )
+
+[node name="HausGelb5" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( -2.61896e-07, 0, -5.99148, 0, 5.99148, 0, 5.99148, 0, -2.61896e-07, 112.756, -0.0364465, 79.8396 )
+
+[node name="HausGelb" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/HausGelb5"]
+transform = Transform( 0.999991, 0.00422368, 0, -0.00422368, 0.999991, 0, 0, 0, 1, -0.027833, -0.00390543, 0.20581 )
+mesh = ExtResource( 6 )
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/HausGelb5"]
+transform = Transform( 0.855895, 0, 0, 0, 1.48772, 0, 0, 0, 1, 0, 1.22703, 0 )
+shape = SubResource( 4 )
+
+[node name="HausRot" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( -8.97912, 0, 0, 0, 5.99148, 0, 0, 0, 5.99148, 4.60188, -0.0364465, 10.3054 )
+
+[node name="HausRot" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/HausRot"]
+transform = Transform( 0.999991, 0.00422368, 0, -0.00422368, 0.999991, 0, 0, 0, 1, -0.00484657, 0.00390543, 0 )
+mesh = ExtResource( 8 )
+material/0 = SubResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/HausRot"]
+transform = Transform( 1, 0, 0, 0, 1.88271, 0, 0, 0, 1, 0.0729218, 1.61478, 0 )
+shape = SubResource( 6 )
+
+[node name="HausRot5" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( 5.99148, 0, 0, 0, 5.99148, 0, 0, 0, 5.99148, -20.7314, -0.0364465, 10.3054 )
+
+[node name="HausRot" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/HausRot5"]
+transform = Transform( 0.999991, 0.00422368, 0, -0.00422368, 0.999991, 0, 0, 0, 1, -0.00484657, 0.00390543, 0 )
+mesh = ExtResource( 8 )
+material/0 = SubResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/HausRot5"]
+transform = Transform( 1, 0, 0, 0, 1.88271, 0, 0, 0, 1, 0.0729218, 1.61478, 0 )
+shape = SubResource( 6 )
+
+[node name="HausRot6" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( -2.61896e-07, 0, 5.99148, 0, 5.99148, 0, -5.99148, 0, -2.61896e-07, -66.8147, -0.0364465, 59.1271 )
+
+[node name="HausRot" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/HausRot6"]
+transform = Transform( 0.999991, 0.00422368, 0, -0.00422368, 0.999991, 0, 0, 0, 1, -0.00484657, 0.00390543, 0 )
+mesh = ExtResource( 8 )
+material/0 = SubResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/HausRot6"]
+transform = Transform( 1, 0, 0, 0, 1.88271, 0, 0, 0, 1, 0.0729218, 1.61478, 0 )
+shape = SubResource( 6 )
+
+[node name="HausRot7" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( -2.61896e-07, 0, 5.99148, 0, 5.99148, 0, -5.99148, 0, -2.61896e-07, -66.8147, -0.0364465, 34.6707 )
+
+[node name="HausRot" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/HausRot7"]
+transform = Transform( 0.999991, 0.00422368, 0, -0.00422368, 0.999991, 0, 0, 0, 1, -0.00484657, 0.00390543, 0 )
+mesh = ExtResource( 8 )
+material/0 = SubResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/HausRot7"]
+transform = Transform( 1, 0, 0, 0, 1.88271, 0, 0, 0, 1, 0.0729218, 1.61478, 0 )
+shape = SubResource( 6 )
+
+[node name="HausRot3" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( -5.99148, 0, -5.23792e-07, 0, 5.99148, 0, 5.23792e-07, 0, -5.99148, 63.4283, -0.0364465, 88.5628 )
+
+[node name="HausRot" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/HausRot3"]
+transform = Transform( 0.999991, 0.00422368, 0, -0.00422368, 0.999991, 0, 0, 0, 1, -0.00484657, 0.00390543, 0 )
+mesh = ExtResource( 8 )
+material/0 = SubResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/HausRot3"]
+transform = Transform( 1, 0, 0, 0, 1.88271, 0, 0, 0, 1, 0.0729218, 1.61478, 0 )
+shape = SubResource( 6 )
+
+[node name="HausRotVariant" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( 5.99148, 0, 0, 0, 5.99148, 0, 0, 0, 5.99148, 21.9755, -0.0364465, 10.3054 )
+
+[node name="HausRot2" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/HausRotVariant"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.134877, 0, 0 )
+mesh = ExtResource( 5 )
+material/0 = SubResource( 7 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/HausRotVariant"]
+transform = Transform( 0.793585, 0, 0, 0, 2.17574, 0, 0, 0, 1.053, -0.134877, 2.22525, -0.0269095 )
+shape = SubResource( 8 )
+
+[node name="HausRotVariant5" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( -2.61896e-07, 0, 5.99148, 0, 5.99148, 0, -8.13877, 0, -3.55757e-07, -65.5411, -0.0364465, 20.8055 )
+
+[node name="HausRot2" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/HausRotVariant5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.134877, 0, 0 )
+mesh = ExtResource( 5 )
+material/0 = SubResource( 7 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/HausRotVariant5"]
+transform = Transform( 0.793585, 0, 0, 0, 2.17574, 0, 0, 0, 1.053, -0.134877, 2.22525, -0.0269095 )
+shape = SubResource( 8 )
+
+[node name="HausRotVariant4" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( 9.06653, 0, 0, 0, 5.99148, 0, 0, 0, 5.99148, 70.0496, -0.0364465, 65.6474 )
+
+[node name="HausRot2" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/HausRotVariant4"]
+transform = Transform( 1.12725, 0, 0, 0, 1, 0, 0, 0, 1, -0.0652919, 0, 0 )
+mesh = ExtResource( 5 )
+material/0 = SubResource( 7 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/HausRotVariant4"]
+transform = Transform( 0.793585, 0, 0, 0, 2.17574, 0, 0, 0, 1.053, -0.134877, 2.22525, -0.0269095 )
+shape = SubResource( 8 )
+
+[node name="HausRotVariant6" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( -3.96311e-07, 0, 5.99148, 0, 5.99148, 0, -9.06653, 0, -2.61896e-07, -67.0836, -0.0364465, 71.4672 )
+
+[node name="HausRot2" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/HausRotVariant6"]
+transform = Transform( 1.12725, 0, 0, 0, 1, 0, 0, 0, 1, -0.0652919, 0, 0 )
+mesh = ExtResource( 5 )
+material/0 = SubResource( 7 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/HausRotVariant6"]
+transform = Transform( 0.793585, 0, 0, 0, 2.17574, 0, 0, 0, 1.053, -0.134877, 2.22525, -0.0269095 )
+shape = SubResource( 8 )
+
+[node name="HausRotVariant3" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( -2.61896e-07, 0, -5.99148, 0, 5.99148, 0, 5.99148, 0, -2.61896e-07, 111.924, -0.0364465, 54.4607 )
+
+[node name="HausRot2" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/HausRotVariant3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.07285, 0, 0 )
+mesh = ExtResource( 5 )
+material/0 = SubResource( 7 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/HausRotVariant3"]
+transform = Transform( 0.793585, 0, 0, 0, 2.17574, 0, 0, 0, 1.053, 1.05674, 2.22525, -0.0269096 )
+shape = SubResource( 8 )
+
+[node name="HausGelb2" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( -2.61896e-07, 0, -5.99148, 0, 5.99148, 0, 5.99148, 0, -2.61896e-07, 50.6284, -0.0364465, 67.2124 )
+
+[node name="HausGelb" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/HausGelb2"]
+transform = Transform( 0.999991, 0.00422368, 0, -0.00422368, 0.999991, 0, 0, 0, 1, 0.0419815, -0.00390543, 0.20581 )
+mesh = ExtResource( 6 )
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/HausGelb2"]
+transform = Transform( 0.855895, 0, 0, 0, 1.48772, 0, 0, 0, 1, 0, 1.22703, 0 )
+shape = SubResource( 4 )
+
+[node name="HausRot2" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( -2.61896e-07, 0, -5.99148, 0, 5.99148, 0, 5.99148, 0, -2.61896e-07, 50.6284, -0.0364465, 56.413 )
+
+[node name="HausRot" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/HausRot2"]
+transform = Transform( 0.999991, 0.00422368, 0, -0.00422368, 0.999991, 0, 0, 0, 1, -0.00484657, 0.00390543, 0 )
+mesh = ExtResource( 8 )
+material/0 = SubResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/HausRot2"]
+transform = Transform( 1, 0, 0, 0, 1.88271, 0, 0, 0, 1, 0.0729218, 1.61478, 0 )
+shape = SubResource( 6 )
+
+[node name="HausRot4" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( 5.99148, 0, 0, 0, 5.99148, 0, 0, 0, 5.99148, 84.0142, -0.0364465, 51.0244 )
+
+[node name="HausRot" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/HausRot4"]
+transform = Transform( 0.999991, 0.00422368, 0, -0.00422368, 0.999991, 0, 0, 0, 1, -0.00484657, 0.00390543, 0 )
+mesh = ExtResource( 8 )
+material/0 = SubResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/HausRot4"]
+transform = Transform( 1, 0, 0, 0, 1.88271, 0, 0, 0, 1, 0.0729218, 1.61478, 0 )
+shape = SubResource( 6 )
+
+[node name="HausRotVariant2" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( -2.61896e-07, 0, -5.99148, 0, 5.99148, 0, 5.99148, 0, -2.61896e-07, 50.6284, -0.0364465, 87.4662 )
+
+[node name="HausRot2" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/HausRotVariant2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.134877, 0, 0 )
+mesh = ExtResource( 5 )
+material/0 = SubResource( 7 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/HausRotVariant2"]
+transform = Transform( 0.793585, 0, 0, 0, 2.17574, 0, 0, 0, 1.053, -0.134877, 2.22525, -0.0269095 )
+shape = SubResource( 8 )
+
+[node name="OfficeTower" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( 5.99148, 0, 0, 0, 5.99148, 0, 0, 0, 5.99148, -26.5473, -0.0364465, -19.2873 )
+
+[node name="OfficeTower" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/OfficeTower"]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -0.552968, 0, 0.0208902 )
+mesh = ExtResource( 7 )
+material/0 = SubResource( 9 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/OfficeTower"]
+transform = Transform( 3.01014, 0, 0, 0, 3.92785, 0, 0, 0, 3.01014, -0.0691071, 3.82009, 0.0463572 )
+shape = SubResource( 10 )
+
+[node name="OfficeTower2" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( 5.99148, 0, 0, 0, 5.99148, 0, 0, 0, 5.99148, 57.6049, -0.0364465, 28.4722 )
+physics_material_override = SubResource( 11 )
+
+[node name="OfficeTower" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/OfficeTower2"]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 0.0841246, 0, 0.714347 )
+mesh = ExtResource( 7 )
+material/0 = SubResource( 9 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/OfficeTower2"]
+transform = Transform( 3.01014, 0, 0, 0, 3.92785, 0, 0, 0, 3.01014, 0.568277, 3.82009, 0.814461 )
+shape = SubResource( 10 )
+
+[node name="OfficeTower3" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( -2.61896e-07, 0, -5.99148, 0, 5.99148, 0, 5.99148, 0, -2.61896e-07, 91.2501, -0.0364465, 97.6052 )
+physics_material_override = SubResource( 11 )
+
+[node name="OfficeTower" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/OfficeTower3"]
+transform = Transform( -1.44761e-07, 0, -0.888533, 0, 0.888533, 0, 0.888533, 0, -1.44761e-07, -0.0358086, 0, 1.09406 )
+mesh = ExtResource( 7 )
+material/0 = SubResource( 9 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/OfficeTower3"]
+transform = Transform( 2.59273, 0, 0, 0, 3.38318, 0, 0, 0, 2.59273, 0.37096, 3.82009, 1.06173 )
+shape = SubResource( 10 )
+
+[node name="OfficeTower4" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( -2.61896e-07, 0, -5.99148, 0, 5.99148, 0, 5.99148, 0, -2.61896e-07, 66.0653, -0.0364465, 103.246 )
+physics_material_override = SubResource( 11 )
+
+[node name="OfficeTower" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/OfficeTower4"]
+transform = Transform( -1.44761e-07, 0, -0.888533, 0, 0.888533, 0, 0.888533, 0, -1.44761e-07, -0.0358086, 0, 1.09406 )
+mesh = ExtResource( 7 )
+material/0 = SubResource( 9 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/OfficeTower4"]
+transform = Transform( 2.59273, 0, 0, 0, 3.38318, 0, 0, 0, 2.59273, 0.37096, 3.82009, 1.06173 )
+shape = SubResource( 10 )
+
+[node name="OfficeTower5" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( -2.61896e-07, 0, -5.99148, 0, 5.99148, 0, 5.99148, 0, -2.61896e-07, 66.0653, 39.9553, 103.246 )
+physics_material_override = SubResource( 11 )
+
+[node name="OfficeTower" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/OfficeTower5"]
+transform = Transform( -1.44761e-07, 0, -0.888533, 0, 0.888533, 0, 0.888533, 0, -1.44761e-07, -0.0358086, 0, 1.09406 )
+mesh = ExtResource( 7 )
+material/0 = SubResource( 9 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/OfficeTower5"]
+transform = Transform( 2.59273, 0, 0, 0, 3.38318, 0, 0, 0, 2.59273, 0.37096, 3.82009, 1.06173 )
+shape = SubResource( 10 )
+
+[node name="OfficeTower6" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( -3.83605e-07, 0, -8.77585, 0, 8.77585, 0, 8.77585, 0, -3.83605e-07, 29.6926, -1.3084, -61.2602 )
+physics_material_override = SubResource( 11 )
+
+[node name="OfficeTower" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/OfficeTower6"]
+transform = Transform( -1.44761e-07, 0, -0.888533, 0, 0.888533, 0, 0.888533, 0, -1.44761e-07, -0.0358086, 0, 1.09406 )
+mesh = ExtResource( 7 )
+material/0 = SubResource( 9 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/OfficeTower6"]
+transform = Transform( 2.59273, 0, 0, 0, 3.38318, 0, 0, 0, 2.59273, 0.37096, 3.82009, 1.06173 )
+shape = SubResource( 10 )
+
+[node name="OfficeTower7" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( -3.83605e-07, 0, -8.77585, 0, 8.77585, 0, 8.77585, 0, -3.83605e-07, 29.6926, 57.2683, -61.2602 )
+physics_material_override = SubResource( 11 )
+
+[node name="OfficeTower" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/OfficeTower7"]
+transform = Transform( -1.44761e-07, 0, -0.888533, 0, 0.888533, 0, 0.888533, 0, -1.44761e-07, -0.0358086, 0, 1.09406 )
+mesh = ExtResource( 7 )
+material/0 = SubResource( 9 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/OfficeTower7"]
+transform = Transform( 2.59273, 0, 0, 0, 3.38318, 0, 0, 0, 2.59273, 0.37096, 3.82009, 1.06173 )
+shape = SubResource( 10 )
+
+[node name="OfficeTower10" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( -3.83605e-07, 0, -8.77585, 0, 8.77585, 0, 8.77585, 0, -3.83605e-07, 112.803, -1.3084, 13.4889 )
+physics_material_override = SubResource( 11 )
+
+[node name="OfficeTower" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/OfficeTower10"]
+transform = Transform( -1.44761e-07, 0, -0.888533, 0, 0.888533, 0, 0.888533, 0, -1.44761e-07, -0.0358086, 0, 1.09406 )
+mesh = ExtResource( 7 )
+material/0 = SubResource( 9 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/OfficeTower10"]
+transform = Transform( 2.59273, 0, 0, 0, 3.38318, 0, 0, 0, 2.59273, 0.37096, 3.82009, 1.06173 )
+shape = SubResource( 10 )
+
+[node name="OfficeTower11" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( -3.83605e-07, 0, -8.77585, 0, 8.77585, 0, 8.77585, 0, -3.83605e-07, 112.803, 57.2683, 13.4889 )
+physics_material_override = SubResource( 11 )
+
+[node name="OfficeTower" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/OfficeTower11"]
+transform = Transform( -1.44761e-07, 0, -0.888533, 0, 0.888533, 0, 0.888533, 0, -1.44761e-07, -0.0358086, 0, 1.09406 )
+mesh = ExtResource( 7 )
+material/0 = SubResource( 9 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/OfficeTower11"]
+transform = Transform( 2.59273, 0, 0, 0, 3.38318, 0, 0, 0, 2.59273, 0.37096, 3.82009, 1.06173 )
+shape = SubResource( 10 )
+
+[node name="OfficeTower8" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( 8.77585, 0, 0, 0, 8.77585, 0, 0, 0, 8.77585, -99.3208, -1.3084, 60.152 )
+physics_material_override = SubResource( 11 )
+
+[node name="OfficeTower" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/OfficeTower8"]
+transform = Transform( -1.44761e-07, 0, -0.888533, 0, 0.888533, 0, 0.888533, 0, -1.44761e-07, -0.0358086, 0, 1.09406 )
+mesh = ExtResource( 7 )
+material/0 = SubResource( 9 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/OfficeTower8"]
+transform = Transform( 2.59273, 0, 0, 0, 3.38318, 0, 0, 0, 2.59273, 0.37096, 3.82009, 1.06173 )
+shape = SubResource( 10 )
+
+[node name="OfficeTower9" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( 8.77585, 0, 0, 0, 8.77585, 0, 0, 0, 8.77585, -99.3208, 57.2683, 60.152 )
+physics_material_override = SubResource( 11 )
+
+[node name="OfficeTower" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/OfficeTower9"]
+transform = Transform( -1.44761e-07, 0, -0.888533, 0, 0.888533, 0, 0.888533, 0, -1.44761e-07, -0.0358086, 0, 1.09406 )
+mesh = ExtResource( 7 )
+material/0 = SubResource( 9 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/OfficeTower9"]
+transform = Transform( 2.59273, 0, 0, 0, 3.38318, 0, 0, 0, 2.59273, 0.37096, 3.82009, 1.06173 )
+shape = SubResource( 10 )
+
+[node name="Brickwalls" type="Node" parent="ViewportContainer/Viewport"]
+
+[node name="Brickwall" type="StaticBody" parent="ViewportContainer/Viewport/Brickwalls"]
+transform = Transform( -1.02494e-07, 4.93698, -1.44305e-07, 0, -2.15802e-07, -3.30131, -0.629105, -8.04338e-07, 2.35102e-14, 11.7911, 2.70913, 15.1581 )
+
+[node name="BrickWall" type="CSGBox" parent="ViewportContainer/Viewport/Brickwalls/Brickwall"]
+transform = Transform( 1, 6.57878e-07, -1.92294e-14, 1.06824e-08, 0.485447, 1.50401e-08, -6.98291e-16, 3.36356e-08, 1, 1.90735e-06, 0.628532, 1.19209e-07 )
+material = SubResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Brickwalls/Brickwall"]
+shape = SubResource( 13 )
+
+[node name="Brickwall9" type="StaticBody" parent="ViewportContainer/Viewport/Brickwalls"]
+transform = Transform( -1.15878, -1.87905e-06, 5.49234e-14, 0, -3.97498e-07, -6.08087, 2.39442e-07, -9.0937, 2.65803e-07, -62.6316, 5.56918, 46.349 )
+
+[node name="BrickWall" type="CSGBox" parent="ViewportContainer/Viewport/Brickwalls/Brickwall9"]
+transform = Transform( 1, 1.13687e-13, 0, 0, 1, -7.7584e-22, 0, -7.10543e-15, 1, 0, 0, 0 )
+material = SubResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Brickwalls/Brickwall9"]
+shape = SubResource( 13 )
+
+[node name="Brickwall10" type="StaticBody" parent="ViewportContainer/Viewport/Brickwalls"]
+transform = Transform( -4.94371e-08, 3.80126, -1.11109e-07, 0, -3.97498e-07, -6.08087, -1.15878, -1.7129e-06, 5.00667e-14, -56.2376, 5.56918, 14.4724 )
+
+[node name="BrickWall" type="CSGBox" parent="ViewportContainer/Viewport/Brickwalls/Brickwall10"]
+transform = Transform( 1, 1.13687e-13, 0, 0, 1, -7.7584e-22, 0, -7.10543e-15, 1, 0, 0, 0 )
+material = SubResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Brickwalls/Brickwall10"]
+shape = SubResource( 13 )
+
+[node name="Brickwall4" type="StaticBody" parent="ViewportContainer/Viewport/Brickwalls"]
+transform = Transform( -1.02494e-07, 4.93698, -1.44305e-07, 0, -2.15802e-07, -3.30131, -0.629105, -8.04338e-07, 2.35102e-14, 57.0821, 2.70913, 70.5829 )
+
+[node name="BrickWall" type="CSGBox" parent="ViewportContainer/Viewport/Brickwalls/Brickwall4"]
+transform = Transform( 1, 1.13687e-13, 0, 0, 1, -7.7584e-22, 0, -7.10543e-15, 1, 0, 0, 0 )
+material = SubResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Brickwalls/Brickwall4"]
+transform = Transform( 1, 0, 3.38813e-21, -1.77636e-15, 1, -7.75837e-22, -1.05879e-22, -1.73509e-21, 1, 0, 0, 0 )
+shape = SubResource( 13 )
+
+[node name="Brickwall7" type="StaticBody" parent="ViewportContainer/Viewport/Brickwalls"]
+transform = Transform( -0.629105, -1.02014e-06, 2.9818e-14, 0, -2.15802e-07, -3.30131, 1.29993e-07, -4.93698, 1.44305e-07, 78.1753, 2.70913, 65.9316 )
+
+[node name="BrickWall" type="CSGBox" parent="ViewportContainer/Viewport/Brickwalls/Brickwall7"]
+transform = Transform( 1, 1.13687e-13, 0, 0, 1, -7.7584e-22, 0, -7.10543e-15, 1, 0, 0, 0 )
+material = SubResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Brickwalls/Brickwall7"]
+shape = SubResource( 13 )
+
+[node name="Brickwall8" type="StaticBody" parent="ViewportContainer/Viewport/Brickwalls"]
+transform = Transform( -0.629105, -1.02014e-06, 2.9818e-14, 0, -2.15802e-07, -3.30131, 1.29993e-07, -4.93698, 1.44305e-07, 78.1753, 2.70913, 56.0826 )
+
+[node name="BrickWall" type="CSGBox" parent="ViewportContainer/Viewport/Brickwalls/Brickwall8"]
+transform = Transform( 1, 1.13687e-13, 0, 0, 1, -7.7584e-22, 0, -7.10543e-15, 1, 0, 0, 0 )
+material = SubResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Brickwalls/Brickwall8"]
+shape = SubResource( 13 )
+
+[node name="Brickwall6" type="StaticBody" parent="ViewportContainer/Viewport/Brickwalls"]
+transform = Transform( -1.02494e-07, 4.93698, -1.44305e-07, 0, -5.19432e-07, -7.9462, -0.629105, -8.04338e-07, 2.35102e-14, 102.888, 6.85911, 85.2765 )
+
+[node name="BrickWall" type="CSGBox" parent="ViewportContainer/Viewport/Brickwalls/Brickwall6"]
+transform = Transform( 1, 1.13687e-13, 0, 0, 1, -7.7584e-22, 0, -7.10543e-15, 1, 0, 0, 0 )
+material = SubResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Brickwalls/Brickwall6"]
+shape = SubResource( 13 )
+
+[node name="Brickwall5" type="StaticBody" parent="ViewportContainer/Viewport/Brickwalls"]
+transform = Transform( -0.00288782, 4.93693, -1.44303e-07, 0, -2.15802e-07, -3.30131, -0.629098, -0.0226625, 6.62412e-10, 94.8608, 2.70913, 47.7007 )
+
+[node name="BrickWall" type="CSGBox" parent="ViewportContainer/Viewport/Brickwalls/Brickwall5"]
+transform = Transform( 1, 1.13687e-13, 0, 0, 1, -7.7584e-22, 0, -7.10543e-15, 1, 0, 0, 0 )
+material = SubResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Brickwalls/Brickwall5"]
+shape = SubResource( 13 )
+
+[node name="Brickwall2" type="StaticBody" parent="ViewportContainer/Viewport/Brickwalls"]
+transform = Transform( -1.02494e-07, 4.93698, -1.44305e-07, 0, -2.15802e-07, -3.30131, -0.629105, -8.04338e-07, 2.35102e-14, 29.5673, 2.70913, 15.1581 )
+
+[node name="BrickWall" type="CSGBox" parent="ViewportContainer/Viewport/Brickwalls/Brickwall2"]
+transform = Transform( 1, 1.13687e-13, 0, 0, 1, -7.7584e-22, 0, -7.10543e-15, 1, 0, 0, 0 )
+material = SubResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Brickwalls/Brickwall2"]
+shape = SubResource( 13 )
+
+[node name="Brickwall3" type="StaticBody" parent="ViewportContainer/Viewport/Brickwalls"]
+transform = Transform( -1.02494e-07, 4.93698, -1.44305e-07, 0, -2.15802e-07, -3.30131, -0.629105, -8.04338e-07, 2.35102e-14, 39.4276, 2.70913, 15.1581 )
+
+[node name="BrickWall" type="CSGBox" parent="ViewportContainer/Viewport/Brickwalls/Brickwall3"]
+transform = Transform( 1, 1.13687e-13, 0, 0, 1, -7.7584e-22, 0, -7.10543e-15, 1, 0, 0, 0 )
+material = SubResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Brickwalls/Brickwall3"]
+shape = SubResource( 13 )
+
+[node name="Cars" type="Node" parent="ViewportContainer/Viewport"]
+
+[node name="Taxi" parent="ViewportContainer/Viewport/Cars" instance=ExtResource( 24 )]
+transform = Transform( 0.563645, 0, -2.01488, 0, 2, 0, 1.91893, 0, 0.591827, 102.856, 0, 65.6254 )
+
+[node name="Taxi2" parent="ViewportContainer/Viewport/Cars" instance=ExtResource( 24 )]
+transform = Transform( 1.99644, 0, 0.125239, 0, 2, 0, -0.119275, 0, 2.09626, 57.7589, 0, 73.3823 )
