@@ -38,7 +38,7 @@ func updateAnim():
 	var choppedVel = Vector2(velocity.x, velocity.z)
 	var choppedForward = Vector2(transform.basis.z.x, transform.basis.z.z)
 	var angle = choppedForward.angle_to(choppedVel)
-	get_child(2).get_child(2).set("parameters/WASDmovement/blend_position", (Vector2(1,0)*((choppedVel.length()*2)/maxSpeed)).rotated(angle).rotated(PI*1.5).reflect(Vector2(0,1)))
+	get_child(2).get_child(2).set("parameters/WASDmovement/blend_position", (Vector2(1,0)*((choppedVel.length()*4)/maxSpeed)).rotated(angle).rotated(PI*1.5).reflect(Vector2(0,1)))
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -91,8 +91,6 @@ func player_movement():
 		jumping = true
 	else:
 		newVelocity.y = velocity.y
-	if !moved:
+	if !moved && is_on_floor():
 		newVelocity = newVelocity * (1-decay)
 	velocity = newVelocity
-
-

@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://Textures/RedHouseText128.png" type="Texture" id=1]
 [ext_resource path="res://Textures/RedHouse2Tex256.png" type="Texture" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://SFX/Coin.wav" type="AudioStream" id=25]
 [ext_resource path="res://SFX/Jump.wav" type="AudioStream" id=26]
 [ext_resource path="res://Prefabs/planks.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Prefabs/PhysicsPylon.tscn" type="PackedScene" id=28]
 
 [sub_resource type="GradientTexture" id=1]
 gradient = ExtResource( 18 )
@@ -64,6 +65,7 @@ background_sky = SubResource( 9 )
 albedo_texture = ExtResource( 4 )
 
 [sub_resource type="BoxShape" id=12]
+extents = Vector3( 1, 1.01141, 1 )
 
 [sub_resource type="SpatialMaterial" id=13]
 albedo_texture = ExtResource( 1 )
@@ -122,17 +124,19 @@ shape = SubResource( 4 )
 [node name="Ramps" type="Node" parent="ViewportContainer/Viewport"]
 
 [node name="Ramp" type="MeshInstance" parent="ViewportContainer/Viewport/Ramps"]
-transform = Transform( -1.54241e-07, 0, -3.52863, 0, 3.52863, 0, 3.52863, 0, -1.54241e-07, -13.9601, 0.0595987, 65.6444 )
+transform = Transform( -1.54241e-07, 0, -3.52863, 0, 5.8278, 0, 3.52863, 0, -1.54241e-07, -6.028, -0.000473976, 65.6444 )
 mesh = ExtResource( 13 )
 material/0 = SubResource( 5 )
 
 [node name="StaticBody" type="StaticBody" parent="ViewportContainer/Viewport/Ramps/Ramp"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Ramps/Ramp/StaticBody"]
+transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 0, 0, 0 )
 shape = SubResource( 6 )
 
 [node name="Ramp2" type="MeshInstance" parent="ViewportContainer/Viewport/Ramps"]
-transform = Transform( 3.52473, -0.181062, 3.26489e-13, 0.202895, 5.80749, 1.87938e-14, -3.2685e-13, 0, 3.52863, 20.485, 26.1589, 11.3697 )
+transform = Transform( 3.52473, -0.181062, 3.26489e-13, 0.23546, 6.73959, 2.18102e-14, -3.2685e-13, 0, 3.52863, 20.485, 26.1589, 11.3697 )
 mesh = ExtResource( 13 )
 material/0 = SubResource( 5 )
 
@@ -161,6 +165,16 @@ material/0 = SubResource( 7 )
 [node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Ramps/Quartpipe2/StaticBody"]
 shape = SubResource( 8 )
 
+[node name="Quartpipe5" type="MeshInstance" parent="ViewportContainer/Viewport/Ramps"]
+transform = Transform( -3.82719, -1.21288, 0.118874, -1.21341, 3.82887, -3.95381e-07, -0.11332, -0.0359127, -4.01478, 22.3903, -1.30312, 103.635 )
+mesh = ExtResource( 14 )
+material/0 = SubResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="ViewportContainer/Viewport/Ramps/Quartpipe5"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Ramps/Quartpipe5/StaticBody"]
+shape = SubResource( 8 )
+
 [node name="Quartpipe3" type="MeshInstance" parent="ViewportContainer/Viewport/Ramps"]
 transform = Transform( 1.48433e-06, 0, -4.01654, 0, 4.01654, 0, 4.01654, 0, 1.48433e-06, -40.7159, -0.0667404, 120.886 )
 mesh = ExtResource( 14 )
@@ -187,19 +201,24 @@ shape = SubResource( 8 )
 transform = Transform( -1.77636e-15, 2.98023e-08, -1, -0.606752, 0.794891, 2.36896e-08, 1.03877, 0.792908, 2.36305e-08, -72.0624, 25.398, 28.9455 )
 
 [node name="planks3" parent="ViewportContainer/Viewport/Ramps" instance=ExtResource( 27 )]
-transform = Transform( -1.77636e-15, 2.98023e-08, -1, 0.00206894, 1.08678, 3.23887e-08, 1.20299, 0.28188, 8.40067e-09, -46.1202, 25.5, 14.4255 )
+transform = Transform( -1.77636e-15, 2.98023e-08, -1, 0.00206894, 1.08678, 3.23887e-08, 1.20299, 0.28188, 8.40067e-09, 42.5647, 44.8368, 7.02097 )
 
 [node name="planks4" parent="ViewportContainer/Viewport/Ramps" instance=ExtResource( 27 )]
-transform = Transform( 1.18562, 0.0967255, 0.017852, 0.20266, 1.11857, -0.0024742, -0.0206676, 0.00104099, 0.999838, -8.86076, 25.5, 13.9917 )
+transform = Transform( 1.20247, 0.257681, 0.0173056, 0.02884, 1.09277, -0.00503319, -0.0206676, 0.00104099, 0.999838, -14.098, 25.9158, 13.9917 )
+
+[node name="planks6" parent="ViewportContainer/Viewport/Ramps" instance=ExtResource( 27 )]
+transform = Transform( 1.20281, 0.285648, 0.0171707, -0.002038, 1.0858, -0.00547578, -0.0206676, 0.00104099, 0.999838, -8.48385, 25.9824, 13.9917 )
 
 [node name="planks5" parent="ViewportContainer/Viewport/Ramps" instance=ExtResource( 27 )]
-transform = Transform( 1.18454, 0.0908479, 0.0178648, 0.208886, 1.11906, -0.00238038, -0.0206676, 0.00104099, 0.999838, 12.7691, 26.261, 13.9917 )
+transform = Transform( 1.19609, 0.167468, 0.0176592, 0.127063, 1.11018, -0.00360135, -0.0206676, 0.00104099, 0.999838, 13.2516, 25.894, 13.9917 )
 
 [node name="planks2" parent="ViewportContainer/Viewport/Ramps" instance=ExtResource( 27 )]
 transform = Transform( -1.77636e-15, 2.98023e-08, -1, -0.317629, 0.97283, 2.89926e-08, 1.1603, 0.560497, 1.67041e-08, -72.0624, 24.1532, 94.9661 )
 
 [node name="Player" parent="ViewportContainer/Viewport" instance=ExtResource( 16 )]
 transform = Transform( 0.999797, 0, 0.0201398, 0, 1, 0, -0.0201398, 0, 0.999797, 93.7205, 1.48941, 59.5861 )
+acceleration = 19
+decay = 0.1
 pathToSFX = NodePath("../../SFX")
 jump = ExtResource( 26 )
 coin = ExtResource( 25 )
@@ -235,6 +254,108 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 58.169, 3.72891, 73.5318 )
 
 [node name="AccelerationPickUp16" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.4559, 1.40499, 77.1365 )
+
+[node name="AccelerationPickUp59" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40.7945, 1.40499, 108.255 )
+
+[node name="AccelerationPickUp60" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40.7945, 1.40499, 105.267 )
+
+[node name="AccelerationPickUp61" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40.7945, 1.40499, 102.726 )
+
+[node name="AccelerationPickUp62" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40.7945, 1.40499, 99.7373 )
+
+[node name="AccelerationPickUp63" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36.8035, 1.40499, 108.255 )
+
+[node name="AccelerationPickUp64" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36.8035, 1.40499, 105.267 )
+
+[node name="AccelerationPickUp65" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36.8035, 1.40499, 102.726 )
+
+[node name="AccelerationPickUp66" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36.8035, 1.40499, 99.7373 )
+
+[node name="AccelerationPickUp67" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40.7945, 1.40499, 96.7052 )
+
+[node name="AccelerationPickUp68" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36.8035, 1.40499, 96.7052 )
+
+[node name="AccelerationPickUp69" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40.7945, 1.40499, 93.2539 )
+
+[node name="AccelerationPickUp70" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36.8035, 1.40499, 93.2539 )
+
+[node name="AccelerationPickUp71" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.9223, 1.40499, 108.255 )
+
+[node name="AccelerationPickUp72" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.9223, 1.40499, 105.267 )
+
+[node name="AccelerationPickUp73" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.9223, 1.40499, 102.726 )
+
+[node name="AccelerationPickUp74" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.9223, 1.40499, 99.7373 )
+
+[node name="AccelerationPickUp75" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9313, 1.40499, 108.255 )
+
+[node name="AccelerationPickUp76" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9313, 1.40499, 105.267 )
+
+[node name="AccelerationPickUp77" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9313, 1.40499, 102.726 )
+
+[node name="AccelerationPickUp78" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9313, 1.40499, 99.7373 )
+
+[node name="AccelerationPickUp79" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.9223, 1.40499, 96.7052 )
+
+[node name="AccelerationPickUp80" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9313, 1.40499, 96.7052 )
+
+[node name="AccelerationPickUp81" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.9223, 1.40499, 93.2539 )
+
+[node name="AccelerationPickUp82" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9313, 1.40499, 93.2539 )
+
+[node name="AccelerationPickUp49" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 39.9038, 1.40499, 18.3201 )
+
+[node name="AccelerationPickUp50" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 39.9038, 1.40499, 22.0931 )
+
+[node name="AccelerationPickUp51" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36.1265, 1.40499, 18.8221 )
+
+[node name="AccelerationPickUp52" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -58.3652, 1.40499, 18.4827 )
+
+[node name="AccelerationPickUp53" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -54.5922, 1.40499, 18.4827 )
+
+[node name="AccelerationPickUp54" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -57.8632, 1.40499, 22.2601 )
+
+[node name="AccelerationPickUp55" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -56.2508, 1.40499, 108.091 )
+
+[node name="AccelerationPickUp56" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -56.2508, 1.40499, 104.318 )
+
+[node name="AccelerationPickUp58" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -56.2508, 1.40499, 104.318 )
+
+[node name="AccelerationPickUp57" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -52.4734, 1.40499, 107.589 )
 
 [node name="AccelerationPickUp2" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 46.3302, 48.66, 25.5841 )
@@ -300,7 +421,7 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -39.528
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -39.5286, 27.0026, 122.716 )
 
 [node name="AccelerationPickUp30" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -42.8495, 31.3371, 120.391 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -42.8495, 31.3371, 122.363 )
 
 [node name="AccelerationPickUp22" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -46.5165, 28.2789, 120.391 )
@@ -336,13 +457,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -62.8381, 28.0664, 18.0402 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -62.8381, 28.0664, 24.5458 )
 
 [node name="AccelerationPickUp45" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -46.099, 26.9188, 13.4098 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -46.099, 28.5001, 13.4098 )
 
 [node name="AccelerationPickUp46" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.9616, 25.2226, 13.4098 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.9616, 27.567, 13.4098 )
 
 [node name="AccelerationPickUp47" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.43747, 28.3153, 13.0364 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.43747, 29.4325, 13.0364 )
 
 [node name="AccelerationPickUp48" parent="ViewportContainer/Viewport/Pills" instance=ExtResource( 20 )]
 transform = Transform( 0.999525, -0.0308164, 0.000107103, 0.0308105, 0.999253, -0.0233327, 0.000612006, 0.0233249, 0.999728, 21.5148, 31.3127, 11.6775 )
@@ -428,12 +549,12 @@ shape = SubResource( 12 )
 transform = Transform( 6.15602, 0, 0, 0, 9.21279, 0, 0, 0, 5.99148, -48.9623, -0.0364465, 10.3054 )
 
 [node name="HausGelb" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/HausGelb7"]
-transform = Transform( 0.999991, 0.00422368, 0, -0.00422368, 0.999991, 0, 0, 0, 1, 0.0419815, -0.00390543, 0.20581 )
+transform = Transform( 0.999992, 0.00422368, 0, -0.00505969, 1.19792, 0, 0, 0, 1, 0.0419822, -0.333962, 0.20581 )
 mesh = ExtResource( 6 )
 material/0 = SubResource( 11 )
 
 [node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/HausGelb7"]
-transform = Transform( 0.855895, 0, 0, 0, 1.48772, 0, 0, 0, 1, 0, 1.22703, 0 )
+transform = Transform( 0.855895, 0, 0, 0, 1.55947, 0, 0, 0, 1, 0, 1.22703, 0 )
 shape = SubResource( 12 )
 
 [node name="HausGelb3" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
@@ -485,7 +606,7 @@ transform = Transform( 1, 0, 0, 0, 1.88271, 0, 0, 0, 1, 0.0729218, 1.61478, 0 )
 shape = SubResource( 14 )
 
 [node name="HausRot5" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
-transform = Transform( 5.99148, 0, 0, 0, 5.99148, 0, 0, 0, 5.99148, -20.7314, -0.0364465, 10.3054 )
+transform = Transform( 5.99148, 0, 0, 0, 6.90916, 0, 0, 0, 5.99148, -20.7314, -1.25438, 10.3054 )
 
 [node name="HausRot" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/HausRot5"]
 transform = Transform( 0.999991, 0.00422368, 0, -0.00422368, 0.999991, 0, 0, 0, 1, -0.00484657, 0.00390543, 0 )
@@ -652,6 +773,42 @@ material/0 = SubResource( 15 )
 transform = Transform( 0.793585, 0, 0, 0, 2.17574, 0, 0, 0, 1.053, 1.05674, 2.22525, -0.0269096 )
 shape = SubResource( 16 )
 
+[node name="HausGelb10" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( -5.99148, 0, 5.23792e-07, 0, 5.99148, 0, -5.23792e-07, 0, -5.99148, 29.2361, -0.0364465, 117.468 )
+
+[node name="HausGelb" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/HausGelb10"]
+transform = Transform( 0.999991, 0.00422368, 0, -0.00422368, 0.999991, 0, 0, 0, 1, -0.027833, -0.00390543, 0.20581 )
+mesh = ExtResource( 6 )
+material/0 = SubResource( 11 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/HausGelb10"]
+transform = Transform( 0.855895, 0, -1.42109e-14, 0, 1.48772, 0, 0, 0, 1, 0, 1.22703, 0 )
+shape = SubResource( 12 )
+
+[node name="HausGelb11" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( -8.12668, 0, 7.10457e-07, 0, 6.92839, 0, -6.05699e-07, 0, -6.92839, 17.7095, -0.0364465, 117.498 )
+
+[node name="HausGelb" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/HausGelb11"]
+transform = Transform( 0.999991, 0.00422368, 0, -0.00422368, 0.999991, 0, 0, 0, 1, -0.027833, -0.00390543, 0.20581 )
+mesh = ExtResource( 6 )
+material/0 = SubResource( 11 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/HausGelb11"]
+transform = Transform( 0.855895, 0, 0, 0, 1.48772, 0, 0, 0, 1, 0, 1.22703, 0 )
+shape = SubResource( 12 )
+
+[node name="HausRotVariant10" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( -5.99148, 0, 5.23792e-07, 0, 5.99148, 0, -5.23792e-07, 0, -5.99148, 45.2449, -0.0364465, 116.666 )
+
+[node name="HausRot2" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/HausRotVariant10"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.07285, 0, 0 )
+mesh = ExtResource( 5 )
+material/0 = SubResource( 15 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/HausRotVariant10"]
+transform = Transform( 0.793585, 0, 0, 0, 2.17574, 0, 0, 0, 1.053, 1.05674, 2.22525, -0.0269096 )
+shape = SubResource( 16 )
+
 [node name="HausGelb2" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
 transform = Transform( -2.61896e-07, 0, -5.99148, 0, 5.99148, 0, 5.99148, 0, -2.61896e-07, 50.6284, -0.0364465, 67.2124 )
 
@@ -752,17 +909,13 @@ transform = Transform( 2.59273, 0, 0, 0, 3.38318, 0, 0, 0, 2.59273, 0.37096, 3.8
 shape = SubResource( 18 )
 
 [node name="OfficeTower5" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
-transform = Transform( -2.61896e-07, 0, -5.99148, 0, 5.99148, 0, 5.99148, 0, -2.61896e-07, 66.0653, 39.9553, 103.246 )
+transform = Transform( -3.35122e-07, 0, -7.66669, 0, 9.82627, 0, 5.99148, 0, -2.61896e-07, -2.26793, -14.5016, 159.482 )
 physics_material_override = SubResource( 19 )
 
 [node name="OfficeTower" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/OfficeTower5"]
 transform = Transform( -1.44761e-07, 0, -0.888533, 0, 0.888533, 0, 0.888533, 0, -1.44761e-07, -0.0358086, 0, 1.09406 )
 mesh = ExtResource( 7 )
 material/0 = SubResource( 17 )
-
-[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/OfficeTower5"]
-transform = Transform( 2.59273, 0, 0, 0, 3.38318, 0, 0, 0, 2.59273, 0.37096, 3.82009, 1.06173 )
-shape = SubResource( 18 )
 
 [node name="OfficeTower6" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
 transform = Transform( -3.83605e-07, 0, -8.77585, 0, 8.77585, 0, 8.77585, 0, -3.83605e-07, 29.6926, -1.3084, -61.2602 )
@@ -800,7 +953,7 @@ mesh = ExtResource( 7 )
 material/0 = SubResource( 17 )
 
 [node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/OfficeTower10"]
-transform = Transform( 2.59273, 0, 0, 0, 3.38318, 0, 0, 0, 2.59273, 0.37096, 3.82009, 1.06173 )
+transform = Transform( 2.59273, 0, -4.26326e-14, 0, 3.38318, 0, 4.26326e-14, 0, 2.59273, 0.443002, 3.82009, 1.29751 )
 shape = SubResource( 18 )
 
 [node name="OfficeTower11" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
@@ -813,7 +966,7 @@ mesh = ExtResource( 7 )
 material/0 = SubResource( 17 )
 
 [node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/OfficeTower11"]
-transform = Transform( 2.59273, 0, 0, 0, 3.38318, 0, 0, 0, 2.59273, 0.37096, 3.82009, 1.06173 )
+transform = Transform( 2.59273, 0, -1.42109e-14, 0, 3.38318, 0, 1.42109e-14, 0, 2.59273, 0.37096, 3.82009, 1.25389 )
 shape = SubResource( 18 )
 
 [node name="OfficeTower8" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
@@ -865,6 +1018,84 @@ mesh = ExtResource( 7 )
 material/0 = SubResource( 17 )
 
 [node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/OfficeTower13"]
+transform = Transform( 2.59273, 0, 0, 0, 3.38318, 0, 0, 0, 2.59273, 0.37096, 3.82009, 1.06173 )
+shape = SubResource( 18 )
+
+[node name="OfficeTower16" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( 2.66751, 0, 0, 0, 8.77585, 0, 0, 0, -7.22344, 3.58216, -1.3084, 137.749 )
+physics_material_override = SubResource( 19 )
+
+[node name="OfficeTower" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/OfficeTower16"]
+transform = Transform( -1.44761e-07, 0, -0.888533, 0, 0.888533, 0, 0.888533, 0, -1.44761e-07, -0.0358086, 0, 1.09406 )
+mesh = ExtResource( 7 )
+material/0 = SubResource( 17 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/OfficeTower16"]
+transform = Transform( 2.59273, 0, 0, 0, 3.38318, 0, 0, 0, 2.59273, 0.37096, 3.82009, 1.06173 )
+shape = SubResource( 18 )
+
+[node name="OfficeTower17" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( 2.66751, 0, 0, 0, 8.77585, 0, 0, 0, -7.22344, 3.58216, 57.2683, 137.749 )
+physics_material_override = SubResource( 19 )
+
+[node name="OfficeTower" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/OfficeTower17"]
+transform = Transform( -1.44761e-07, 0, -0.888533, 0, 0.888533, 0, 0.888533, 0, -1.44761e-07, -0.0358086, 0, 1.09406 )
+mesh = ExtResource( 7 )
+material/0 = SubResource( 17 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/OfficeTower17"]
+transform = Transform( 2.59273, 0, 0, 0, 3.38318, 0, 0, 0, 2.59273, 0.37096, 3.82009, 1.06173 )
+shape = SubResource( 18 )
+
+[node name="OfficeTower18" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( 2.66751, 0, 0, 0, 8.77585, 0, 0, 0, -7.22344, -17.6752, -1.3084, 137.749 )
+physics_material_override = SubResource( 19 )
+
+[node name="OfficeTower" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/OfficeTower18"]
+transform = Transform( -1.44761e-07, 0, -0.888533, 0, 0.888533, 0, 0.888533, 0, -1.44761e-07, -0.0358086, 0, 1.09406 )
+mesh = ExtResource( 7 )
+material/0 = SubResource( 17 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/OfficeTower18"]
+transform = Transform( 2.59273, 0, 0, 0, 3.38318, 0, 0, 0, 2.59273, 0.37096, 3.82009, 1.06173 )
+shape = SubResource( 18 )
+
+[node name="OfficeTower20" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( 2.66751, 0, 0, 0, 7.09873, -4.24706, 0, -5.1598, -5.843, -7.60806, -1.92851, 172.032 )
+physics_material_override = SubResource( 19 )
+
+[node name="OfficeTower" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/OfficeTower20"]
+transform = Transform( -1.44761e-07, 0, -0.888533, 0, 0.888533, 0, 0.888533, 0, -1.44761e-07, -0.0358086, 0, 1.09406 )
+mesh = ExtResource( 7 )
+material/0 = SubResource( 17 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/OfficeTower20"]
+transform = Transform( 2.59273, 0, 0, 0, 3.38318, 0, 0, 0, 2.59273, 0.37096, 3.82009, 1.06173 )
+shape = SubResource( 18 )
+
+[node name="OfficeTower21" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( 2.66751, 0, 0, 0, 8.77329, 0.174594, 0, 0.212117, -7.22133, -7.60806, -29.8676, 140.341 )
+physics_material_override = SubResource( 19 )
+
+[node name="OfficeTower" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/OfficeTower21"]
+transform = Transform( -1.44761e-07, 0, -0.888533, 0, 0.888533, 0, 0.888533, 0, -1.44761e-07, -0.0358086, 0, 1.09406 )
+mesh = ExtResource( 7 )
+material/0 = SubResource( 17 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/OfficeTower21"]
+transform = Transform( 2.59273, 0, 0, 0, 3.38318, 0, 0, 0, 2.59273, 0.37096, 3.82009, 1.06173 )
+shape = SubResource( 18 )
+
+[node name="OfficeTower19" type="StaticBody" parent="ViewportContainer/Viewport/Houses"]
+transform = Transform( 2.66751, 0, 0, 0, 8.77585, 0, 0, 0, -7.22344, -17.6752, 57.2683, 137.749 )
+physics_material_override = SubResource( 19 )
+
+[node name="OfficeTower" type="MeshInstance" parent="ViewportContainer/Viewport/Houses/OfficeTower19"]
+transform = Transform( -1.44761e-07, 0, -0.888533, 0, 0.888533, 0, 0.888533, 0, -1.44761e-07, -0.0358086, 0, 1.09406 )
+mesh = ExtResource( 7 )
+material/0 = SubResource( 17 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Houses/OfficeTower19"]
 transform = Transform( 2.59273, 0, 0, 0, 3.38318, 0, 0, 0, 2.59273, 0.37096, 3.82009, 1.06173 )
 shape = SubResource( 18 )
 
@@ -926,6 +1157,36 @@ material = SubResource( 20 )
 [node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Brickwalls/Brickwall12"]
 shape = SubResource( 21 )
 
+[node name="Brickwall15" type="StaticBody" parent="ViewportContainer/Viewport/Brickwalls"]
+transform = Transform( 2.90094e-07, -9.0937, 2.65803e-07, 0, -3.97498e-07, -6.08087, 1.15878, 2.27655e-06, -6.6542e-14, 36.3543, 5.56918, 90.8245 )
+
+[node name="BrickWall" type="CSGBox" parent="ViewportContainer/Viewport/Brickwalls/Brickwall15"]
+transform = Transform( 1, 1.13687e-13, 0, 0, 1, 0, -1.05879e-22, -1.42109e-14, 1, 0, 0, 0 )
+material = SubResource( 20 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Brickwalls/Brickwall15"]
+shape = SubResource( 21 )
+
+[node name="Brickwall16" type="StaticBody" parent="ViewportContainer/Viewport/Brickwalls"]
+transform = Transform( 2.90094e-07, -9.0937, 2.65803e-07, 0, -3.97498e-07, -6.08087, 1.15878, 2.27655e-06, -6.6542e-14, 18.1869, 5.56918, 90.8245 )
+
+[node name="BrickWall" type="CSGBox" parent="ViewportContainer/Viewport/Brickwalls/Brickwall16"]
+transform = Transform( 1, 1.13687e-13, 0, 0, 1, 0, -1.05879e-22, -1.42109e-14, 1, 0, 0, 0 )
+material = SubResource( 20 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Brickwalls/Brickwall16"]
+shape = SubResource( 21 )
+
+[node name="Brickwall17" type="StaticBody" parent="ViewportContainer/Viewport/Brickwalls"]
+transform = Transform( 1.15878, 2.67405e-06, -7.81606e-14, 0, -3.97498e-07, -6.08087, -3.61806e-07, 9.65574, -2.82231e-07, 10.3741, 5.56918, 101.379 )
+
+[node name="BrickWall" type="CSGBox" parent="ViewportContainer/Viewport/Brickwalls/Brickwall17"]
+transform = Transform( 1, 1.13687e-13, 0, 0, 1, 0, -1.05879e-22, -1.42109e-14, 1, 0, 0, 0 )
+material = SubResource( 20 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Brickwalls/Brickwall17"]
+shape = SubResource( 21 )
+
 [node name="Brickwall13" type="StaticBody" parent="ViewportContainer/Viewport/Brickwalls"]
 transform = Transform( -1.15878, -1.87905e-06, 5.49234e-14, 0, -3.97498e-07, -6.08087, 2.87411e-07, -10.9155, 3.19054e-07, -60.0555, 5.56918, 67.9019 )
 
@@ -964,6 +1225,17 @@ transform = Transform( 1, 1.13687e-13, 0, 0, 1, -7.7584e-22, 0, -7.10543e-15, 1,
 material = SubResource( 20 )
 
 [node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Brickwalls/Brickwall4"]
+transform = Transform( 1, 0, 3.38813e-21, -1.77636e-15, 1, -7.75837e-22, -1.05879e-22, -1.73509e-21, 1, 0, 0, 0 )
+shape = SubResource( 21 )
+
+[node name="Brickwall14" type="StaticBody" parent="ViewportContainer/Viewport/Brickwalls"]
+transform = Transform( 0.887417, 8.3019e-07, -2.42658e-14, 0, -6.55012e-07, -10.0203, -1.05788e-07, 6.96412, -2.03557e-07, 46.4244, 2.70913, 44.465 )
+
+[node name="BrickWall" type="CSGBox" parent="ViewportContainer/Viewport/Brickwalls/Brickwall14"]
+transform = Transform( 1, 1.13687e-13, 0, 0, 1, -7.7584e-22, 0, -7.10543e-15, 1, 0, 0, 0 )
+material = SubResource( 20 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Brickwalls/Brickwall14"]
 transform = Transform( 1, 0, 3.38813e-21, -1.77636e-15, 1, -7.75837e-22, -1.05879e-22, -1.73509e-21, 1, 0, 0, 0 )
 shape = SubResource( 21 )
 
@@ -1045,17 +1317,94 @@ transform = Transform( 1.93694, 0, -0.523171, 0, 2, 0, 0.498259, 0, 2.03379, -64
 [node name="LevelBounds" type="Node" parent="ViewportContainer/Viewport"]
 
 [node name="StaticBody" type="StaticBody" parent="ViewportContainer/Viewport/LevelBounds"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25.5667, 0 )
+transform = Transform( 1, 0, 0, 0, 3.66322, 0, 0, 0, 1, 0, -20.6435, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/LevelBounds/StaticBody"]
 transform = Transform( 126.768, 0, 0, 0, 66.1854, 0, 0, 0, 6.13583, 0, 0, 0.783507 )
 shape = SubResource( 22 )
 
+[node name="StaticBody3" type="StaticBody" parent="ViewportContainer/Viewport/LevelBounds"]
+transform = Transform( 0.451172, 0, 0, 0, -2.56426, 0, 0, 0, 11.4241, 102.587, 106.479, 146.353 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/LevelBounds/StaticBody3"]
+transform = Transform( 126.768, 0, 0, 0, 145.665, 0, 0, 0, 6.13583, 0, 0, 0.783506 )
+shape = SubResource( 22 )
+
+[node name="StaticBody8" type="StaticBody" parent="ViewportContainer/Viewport/LevelBounds"]
+transform = Transform( 0.451172, 0, 0, 0, -2.56426, 0, 0, 0, 11.4241, 64.9527, 106.479, 171.154 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/LevelBounds/StaticBody8"]
+transform = Transform( 126.768, 0, 0, 0, 145.665, 0, 0, 0, 6.13583, 0, 0, 0.783506 )
+shape = SubResource( 22 )
+
+[node name="StaticBody7" type="StaticBody" parent="ViewportContainer/Viewport/LevelBounds"]
+transform = Transform( 0.451172, 0, 0, 0, 3.66322, 0, 0, 0, 5.60539, -88.4934, 90.4243, 154.495 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/LevelBounds/StaticBody7"]
+transform = Transform( 126.768, 0, 0, 0, 66.1854, 0, 0, 0, 6.13583, 0, 0, 0.783506 )
+shape = SubResource( 22 )
+
+[node name="StaticBody4" type="StaticBody" parent="ViewportContainer/Viewport/LevelBounds"]
+transform = Transform( 0.124597, 0, 0, 0, 3.66322, 0, 0, 0, 2.51394, 62.3399, 90.4243, 53.2867 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/LevelBounds/StaticBody4"]
+transform = Transform( 126.768, 0, 0, 0, 66.1854, 0, 0, 0, 6.13583, 0, 0, 0.783507 )
+shape = SubResource( 22 )
+
+[node name="StaticBody5" type="StaticBody" parent="ViewportContainer/Viewport/LevelBounds"]
+transform = Transform( 0.240437, 0, 0, 0, 3.66322, 0, 0, 0, 2.51394, 94.0755, 90.4243, 30.1918 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/LevelBounds/StaticBody5"]
+transform = Transform( 126.768, 0, 0, 0, 66.1854, 0, 0, 0, 6.13583, 0, 0, 0.783507 )
+shape = SubResource( 22 )
+
+[node name="StaticBody6" type="StaticBody" parent="ViewportContainer/Viewport/LevelBounds"]
+transform = Transform( -1.05099e-08, 0, -2.51394, 0, 3.66322, 0, 0.240437, 0, -1.09888e-07, 124.256, 90.4243, 64.6834 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/LevelBounds/StaticBody6"]
+transform = Transform( 126.768, 0, 0, 0, 66.1854, 0, 0, 0, 6.13583, 0, 0, 0.783507 )
+shape = SubResource( 22 )
+
 [node name="StaticBody2" type="StaticBody" parent="ViewportContainer/Viewport/LevelBounds"]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -80.104, 25.5667, 58.3049 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 3.66322, 0, -1, 0, -4.37114e-08, -80.104, -20.6435, 58.3049 )
 
 [node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/LevelBounds/StaticBody2"]
 transform = Transform( 92.5457, 0, 1.58359e-07, 0, 66.1854, 0, 1.50179e-06, 0, 6.13583, 0, 0, 0.783508 )
 shape = SubResource( 22 )
+
+[node name="Pylons" type="Node" parent="ViewportContainer/Viewport"]
+
+[node name="Pylon" parent="ViewportContainer/Viewport/Pylons" instance=ExtResource( 28 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44.7424, 0.552423, 73.3034 )
+
+[node name="Pylon2" parent="ViewportContainer/Viewport/Pylons" instance=ExtResource( 28 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44.7424, 0.552423, 80.4335 )
+
+[node name="Pylon3" parent="ViewportContainer/Viewport/Pylons" instance=ExtResource( 28 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0124, 0.552423, 59.8334 )
+
+[node name="Pylon9" parent="ViewportContainer/Viewport/Pylons" instance=ExtResource( 28 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.1882, 0.552423, 108.098 )
+
+[node name="Pylon10" parent="ViewportContainer/Viewport/Pylons" instance=ExtResource( 28 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -42.6651, 0.552423, 108.098 )
+
+[node name="Pylon11" parent="ViewportContainer/Viewport/Pylons" instance=ExtResource( 28 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 91.2925, 0.552423, 56.0359 )
+
+[node name="Pylon4" parent="ViewportContainer/Viewport/Pylons" instance=ExtResource( 28 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0124, 0.552423, 55.6568 )
+
+[node name="Pylon5" parent="ViewportContainer/Viewport/Pylons" instance=ExtResource( 28 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2304, 0.552423, 52.0036 )
+
+[node name="Pylon6" parent="ViewportContainer/Viewport/Pylons" instance=ExtResource( 28 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41547, 0.552423, 52.0036 )
+
+[node name="Pylon7" parent="ViewportContainer/Viewport/Pylons" instance=ExtResource( 28 )]
+transform = Transform( 0.942764, 0, -0.333461, 0, 1, 0, 0.333461, 0, 0.942764, -1.41547, 0.552423, 56.3701 )
+
+[node name="Pylon8" parent="ViewportContainer/Viewport/Pylons" instance=ExtResource( 28 )]
+transform = Transform( 0.942764, 0, -0.333461, 0, 1, 0, 0.333461, 0, 0.942764, -1.41547, 0.552423, 60.2441 )
 
 [node name="SFX" type="AudioStreamPlayer" parent="ViewportContainer"]
