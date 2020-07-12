@@ -20,10 +20,11 @@ func _process(_delta):
 			pause_game()
 
 func pause_game():
-	get_tree().paused = true
-	visible = true
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	get_child(0).play(0.0)
+	if get_tree().get_current_scene().get_name() != "WinScene":
+		get_tree().paused = true
+		visible = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_child(0).play(0.0)
 	
 	
 func cont_game():

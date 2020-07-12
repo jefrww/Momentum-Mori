@@ -13,4 +13,8 @@ func _on_AccelerationPickUp_body_entered(body):
 		child.queue_free()
 	queue_free()
 	print("DESTROYED")
+	if body.collected == body.winCondition:
+		var error = get_tree().change_scene("res://Scenes/Win.tscn")
+		if error:
+			print(error)
 
