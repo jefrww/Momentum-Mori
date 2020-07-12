@@ -1,8 +1,19 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://UI/MainMenuButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI/Menu/Continuebutton.png" type="Texture" id=2]
 
 [node name="ContinueButton" instance=ExtResource( 1 )]
+margin_right = 100.0
+rect_min_size = Vector2( 100, 50 )
+focus_mode = 0
+enabled_focus_mode = 0
 
 [node name="Label" parent="." index="0"]
+rect_min_size = Vector2( 100, 0 )
 text = "Continue"
+
+[node name="Sprite" type="Sprite" parent="." index="1"]
+position = Vector2( 50, 25 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 2 )
