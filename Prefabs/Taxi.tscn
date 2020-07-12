@@ -14,6 +14,7 @@ transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2.1, 0, 0, 0 )
 
 [node name="taxi" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.498817, 0 )
+use_in_baked_light = true
 mesh = ExtResource( 2 )
 material/0 = SubResource( 1 )
 
